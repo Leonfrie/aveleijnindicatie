@@ -21,8 +21,7 @@
         </div>
         <div class="w3-bar-block kleurtekst">
             @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button w3-hover-white kleurtekst" })
-            <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-            <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Showcase</a>
+    
             <br />
             <br />
             @Html.Partial("_LoginPartial")
@@ -43,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - CSE week Twente </p>
         </footer>
     </div>
 
@@ -66,13 +65,13 @@
         color: #006070;
     }
 
-    a-yellow {
+    .a-yellow {
         background-color: #facd02;
     }
 
-    a-blue {
-        background-color: blue;
-        color: #006070;
+    .a-blue {
+        background-color: #006070;
+        color: white;
     }
 </style>
 
