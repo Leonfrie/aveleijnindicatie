@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="76F61C2E-2BC0-1F3B-027E-F09EDA2CC064" name="medewerker">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>DA5B442D-9552-1042-5570-5A10C903547D</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="medewerker_id" id="58CB018D-85DE-CCF9-A7E1-9CB31563BB6A">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>A4220177-CBED-29A5-4209-4381BD217781</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="voornaam" id="5B0C1D7E-1418-71CE-6D19-BA6789A0D90F">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>2F4D601F-0A93-E55A-6398-42D8915D5F03</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="achternaam" id="27998A69-BC9A-61EA-495B-A96B4B4BEFC0">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>06F3355C-20EC-0BD7-5DAA-5011318A6FE7</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tussenvoegsels" id="EE9CB649-7C21-AC1C-A41A-E1CE28F81EBC">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>D3E3B883-E6A2-8D9D-4C85-53AA557E06FA</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="geboortedatum" id="E209566C-315B-EECD-F613-340C3FB82AB6">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>92DCA81C-C1D2-7F0A-38A5-BF84E8321508</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="93F05130-31EA-ECBD-51BA-7BE97D021248" name="medewerker_PK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>25158BC4-B7DB-5003-686E-F45D6E53BF52</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58CB018D-85DE-CCF9-A7E1-9CB31563BB6A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

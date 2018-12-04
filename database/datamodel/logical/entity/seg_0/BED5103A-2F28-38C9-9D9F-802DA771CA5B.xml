@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BED5103A-2F28-38C9-9D9F-802DA771CA5B" name="indicatie">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:10:17 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="client_id" id="4BEB29D5-3A5D-BA4D-1CF8-6BE428A79160">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:18:22 UTC</createdTime>
+<generatorID>512D665A-91DB-0436-F2B4-83C33E450A2A</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<referedAttribute>26E28463-FEFD-22D1-7471-30FA35C1BF24</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="indicatie_id" id="5CC89FCE-F5D4-B2EE-9BE2-ACE26DBE895B">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:20:27 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="indiecatiedomein_id" id="1327891E-E7EE-23D8-4594-EA636E3D21D6">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:22:30 UTC</createdTime>
+<generatorID>41826C0C-6431-471F-72AE-2E88DD79AAE6</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<referedAttribute>DA39E94E-8DCE-D5E7-8C7A-9C5AD00EEEC0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="indicatiebeschrijving" id="A4E53C14-3353-F107-A557-A94EF6C3E39B">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:22:54 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>20000</dataTypeSize>
+<ownDataTypeParameters>20000,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

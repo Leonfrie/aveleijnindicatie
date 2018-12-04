@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E1D9137F-03E8-3B56-EF8F-880EF8B8C75F" containerWithKeyObject="0A6AFA5E-3911-4D47-607A-BA68BBC10F59" localFKIndex="A0A0FC7C-8678-FAD3-C479-7B3E3142EF12" name="filiaal_medewerker_FK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>90546BE0-B9EE-F89B-316E-136DAF3E00AC</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<referredTableLongName>medewerker</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>76F61C2E-2BC0-1F3B-027E-F09EDA2CC064</referredTableID>
+<keyObject>93F05130-31EA-ECBD-51BA-7BE97D021248</keyObject>
+<referredKeyID>93F05130-31EA-ECBD-51BA-7BE97D021248</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>medewerker_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

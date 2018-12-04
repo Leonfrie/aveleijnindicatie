@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2F93CCF3-6DF8-6CF3-AC44-5EBC1ED46420" name="indicatiedomein">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>4604A141-C464-C509-0160-5B857061F2AA</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="indiecatiedomein_id" id="BB304F8C-1C9A-AB1E-828D-C67729E1738B">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>DA39E94E-8DCE-D5E7-8C7A-9C5AD00EEEC0</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="naam" id="ECC3866B-91F9-1824-A5B3-EE684899E41A">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>CF56F6F2-D760-3982-32E2-D7B1826AB985</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8EE035C0-DCFD-A992-0208-A570D5336B57" name="indicatiedomein_PK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>83836211-8CB5-8946-C1E8-3822782AC2D2</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB304F8C-1C9A-AB1E-828D-C67729E1738B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

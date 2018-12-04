@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DC1351B3-D39D-07AB-1D42-1C86B469D59B" name="indicatie">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>BED5103A-2F28-38C9-9D9F-802DA771CA5B</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="client_client_id" id="AE79D006-5828-4CEA-98CA-66791C7F2131">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>4BEB29D5-3A5D-BA4D-1CF8-6BE428A79160</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="327A494E-8053-8F7B-2CD0-0B059D80CAFF" referredColumn="2AB75BAF-2669-541B-D412-6BE93BF81C24"/>
+</associations>
+</Column>
+<Column name="indicatie_id" id="103CE338-DEE8-66B9-5578-563029CE83C1">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>5CC89FCE-F5D4-B2EE-9BE2-ACE26DBE895B</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="indicatiedomein_indiecatiedomein_id" id="404DDCCD-2E29-868F-66FB-A362FC3E9009">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>1327891E-E7EE-23D8-4594-EA636E3D21D6</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="90BC443D-2B46-1D9A-E06A-01E56813D001" referredColumn="BB304F8C-1C9A-AB1E-828D-C67729E1738B"/>
+</associations>
+</Column>
+<Column name="indicatiebeschrijving" id="1F79EAA0-F194-96C7-4157-011F2D313F5E">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>A4E53C14-3353-F107-A557-A94EF6C3E39B</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<dataTypeSize>20000</dataTypeSize>
+<ownDataTypeParameters>20000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="indicatie_ID1" id="A4AA1F78-AD01-B280-F9F6-993085B5CD86">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="671DB8FC-D1A1-ABA0-133D-B742FF45695E" name="indicatie_PK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="A4AA1F78-AD01-B280-F9F6-993085B5CD86"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7370111F-D34B-AFEB-B37E-CF5CF485E8F9" name="indicatie_client_FK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>512D665A-91DB-0436-F2B4-83C33E450A2A</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE79D006-5828-4CEA-98CA-66791C7F2131"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="66573C21-D7F8-2C3A-9879-1A1C46769A4F" name="indicatie_indicatiedomein_FK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>41826C0C-6431-471F-72AE-2E88DD79AAE6</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="404DDCCD-2E29-868F-66FB-A362FC3E9009"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

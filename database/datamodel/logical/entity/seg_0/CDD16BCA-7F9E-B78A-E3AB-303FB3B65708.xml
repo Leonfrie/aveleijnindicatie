@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CDD16BCA-7F9E-B78A-E3AB-303FB3B65708" name="filiaal">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:10:12 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="filiaal_id" id="B9781E54-E759-548C-C429-AA435F39E5BB">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:15:31 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="naam" id="3A3B2131-981C-653B-3269-3696CE5EABA1">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:15:42 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="adres" id="F80098A6-B100-6058-21A9-3290D12AC150">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:15:57 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="plaats" id="80B9E42D-B8CB-72F4-4BF6-BEE0E5A2F157">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:16:16 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="postcode" id="3E15E5A3-9436-20F9-D2B6-7D0329C685C3">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:16:29 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telnr" id="20A92768-BC5C-CA50-BCA6-4059416FC2FF">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:16:48 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="medewerker_id" id="0D4E0519-707C-7F58-02BB-F287B2C67FDD">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:18:41 UTC</createdTime>
+<generatorID>90546BE0-B9EE-F89B-316E-136DAF3E00AC</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<referedAttribute>A4220177-CBED-29A5-4209-4381BD217781</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="73404C98-479C-9241-EA70-5F0291A3DCCE" name="filiaal PK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:15:41 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B9781E54-E759-548C-C429-AA435F39E5BB</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
