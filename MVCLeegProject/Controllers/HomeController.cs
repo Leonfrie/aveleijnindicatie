@@ -6,19 +6,12 @@ using System.Web.Mvc;
 
 namespace MVCLeegProject.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult categories()
-        {
-            return View();
-        }
-
 
         public ActionResult About()
         {
