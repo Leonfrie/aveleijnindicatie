@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0567629F-26A7-5B5B-3B32-08F7B96B86FC" name="client">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:10:07 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="client_id" id="26E28463-FEFD-22D1-7471-30FA35C1BF24">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:12:39 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="voornaam" id="35ECD2FD-4366-83AE-1FC5-1E7C2D69EFD7">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:12:55 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="achternaam" id="2E4C3386-A0F7-16B3-E4A5-CAAF14648B4E">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:13:08 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tussenvoegsels" id="E436E61A-DE03-98A1-2832-1674F6CB2595">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:13:15 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="geboortedatum" id="ADB19988-DB53-6E26-BB77-E2DDA0C4A58C">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:13:53 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telnr" id="9A3D7DFB-4B2A-F288-0CD6-0657F270AA5B">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:14:43 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="medewerker_id" id="68E1F128-6B06-40C4-EFC6-F1D152EE83B2">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:17:32 UTC</createdTime>
+<generatorID>386A8AAE-1460-AEC5-6A31-5EB261B8539D</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="true"/>
+</engineerTo>
+<referedAttribute>A4220177-CBED-29A5-4209-4381BD217781</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3F5CB5C4-6DA8-488C-5D9A-E364961CCFE5" name="client PK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:12:53 UTC</createdTime>
+<ownerDesignName>datamodel</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="DA25ABE9-A9D8-FFED-6108-7B18E77FDE3A" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>26E28463-FEFD-22D1-7471-30FA35C1BF24</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
