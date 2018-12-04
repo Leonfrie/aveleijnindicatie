@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.aveleijn {
+    background-color: yellow;
+    color: green;
+}
+
+.kleurtekst {
+    color: green;
+}
+
