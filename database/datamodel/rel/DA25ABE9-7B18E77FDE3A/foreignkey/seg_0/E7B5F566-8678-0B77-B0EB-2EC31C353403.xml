@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E7B5F566-8678-0B77-B0EB-2EC31C353403" containerWithKeyObject="5E36463E-A3B7-1068-57EE-2C6F4D9843A8" localFKIndex="755F5197-9036-00B4-07C0-B77C54ECD1CE" name="oplossing_indicatie_FK">
+<createdBy>Roman-LP</createdBy>
+<createdTime>2018-12-03 14:26:05 UTC</createdTime>
+<generatorID>71D1088F-5CE4-E55C-B343-43331EF6D1FC</generatorID>
+<ownerDesignName>datamodel</ownerDesignName>
+<referredTableLongName>indicatie</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DC1351B3-D39D-07AB-1D42-1C86B469D59B</referredTableID>
+<keyObject>671DB8FC-D1A1-ABA0-133D-B742FF45695E</keyObject>
+<referredKeyID>671DB8FC-D1A1-ABA0-133D-B742FF45695E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>indicatie_ID1</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
