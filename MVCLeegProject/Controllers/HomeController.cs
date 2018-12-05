@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVCLeegProject.Models;
 
 namespace MVCLeegProject.Controllers
 {
@@ -18,7 +19,6 @@ namespace MVCLeegProject.Controllers
         {
             return View();
         }
-
 
         public ActionResult About()
         {
