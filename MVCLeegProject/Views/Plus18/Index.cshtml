@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <h3>Mate van beperking</h3>
 <input type="radio" name="radiovraag11" value="geen" /> Geen beperking <br />
 <input type="radio" name="radiovraag12" value="matig" /> Matige beperking (70-80 IQ) <br />
@@ -19,81 +18,209 @@
 <input type="radio" name="radiovraag31" value=1 /> Ja <br />
 <input type="radio" name="radiovraag32" value=0 /> Nee <br />
 
-<h2>Index</h2>
-<div id="tab1">
-    <p>Ondersteuning bij lichamelijke verzorging</p>
 
-    <input type="checkbox" name="checkbox1vraag1" value=3 onchange='countPoints()'> ADL<br>
-    <input type="checkbox" name="checkbox2vraag1" value=1 onchange='countPoints()'>Hygiëne<br>
-    <input type="checkbox" name="checkbox3vraag1" value=4 onchange='countPoints()'>Voeding<br>
-    <input type="checkbox" name="checkbox4vraag1" value=2 onchange='countPoints()'>Kleding/zelfzorg<br>
-    <input type="checkbox" name="checkbox5vraag1" value=3 onchange='countPoints()'>Mobiliteit<br>
-    <input type="checkbox" name="checkbox6vraag1" value=1 onchange='countPoints()'>Goede nachtrust<br>
-</div>
-
-<div id="tab2">
-    <h3>Ondersteuning bij psychisch welbevinden</h3>
-
-    <input type="checkbox" name="checkbox1vraag2" value=9 onchange='countPoints()'>Diagnostisch onderzoek<br>
-    <input type="checkbox" name="checkbox2vraag2" value=7 onchange='countPoints()'>Rouwverwerking<br>
-    <input type="checkbox" name="checkbox3vraag2" value=6 onchange='countPoints()'>Depresssie<br>
-    <input type="checkbox" name="checkbox4vraag2" value=9 onchange='countPoints()'>Traumaverwerking<br>
-    <input type="checkbox" name="checkbox5vraag2" value=9 onchange='countPoints()'>Angst-, stress-, gedragsstoornissen<br>
-    <input type="checkbox" name="checkbox6vraag2" value=6 onchange='countPoints()'>Dementie<br>
-    <input type="checkbox" name="checkbox7vraag2" value=9 onchange='countPoints()'>Verslaving<br>
-</div>
-
-<div id="tab3">
-    <h3>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h3>
-
-    <input type="checkbox" name="checkbox1vraag3" value=4 onchange='countPoints()'>Zinvolle dagbesteding<br>
-    <input type="checkbox" name="checkbox2vraag3" value=2 onchange='countPoints()'>Vrijetijds besteding<br>
-    <input type="checkbox" name="checkbox3vraag3" value=2 onchange='countPoints()'>Werk<br>
-    <input type="checkbox" name="checkbox4vraag3" value=4 onchange='countPoints()'>Onderwijs<br>
-    <input type="checkbox" name="checkbox5vraag3" value=2 onchange='countPoints()'>Ontwikkelen van talent<br>
-    <input type="checkbox" name="checkbox6vraag3" value=2 onchange='countPoints()'>Trainingen<br>
-</div>
-
-<div id="tab4">
-    <h3>Ondersteuning bij maatschappelijk en huiselijke problematiek</h3>
-    <input type="checkbox" name="checkbox1vraag4" value=9 onchange='countPoints()'>Verwerking na gebeurtenissen<br>
-    <input type="checkbox" name="checkbox2vraag4" value=9 onchange='countPoints()'>Seksueel misbruik<br>
-    <input type="checkbox" name="checkbox3vraag4" value=9 onchange='countPoints()'>Huiselijk geweld en aggressie<br>
-    <input type="checkbox" name="checkbox4vraag4" value=9 onchange='countPoints()'>Verslaving en overlast<br>
-</div>
-
-<div id="tab5">
-    <h3>Ondersteuning bij huisvesting, huishouden, en financiën</h3>
-    <input type="checkbox" name="checkbox1vraag5" value=3 onchange='countPoints()'>Ondersteuning bij huisvesting, huishouden en financiën<br>
-    <input type="checkbox" name="checkbox2vraag5" value=2 onchange='countPoints()'>Begeleiding huishouden<br>
-    <input type="checkbox" name="checkbox3vraag5" value=2 onchange='countPoints()'>Ondersteuning administratie en financiën<br>
-</div>
-
-<div id="tab6">
-    <h3>Ondersteunen bij netwerk en relaties</h3>
-
-    <input type="checkbox" name="checkbox1vraag6" value=2 onchange='countPoints()'>Sociale vaardigheden<br>
-    <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'>Assertiviteit<br>
-    <input type="checkbox" name="checkbox3vraag6" value=2 onchange='countPoints()'>Contacten met o.a. familie/vrienden<br>
-    <input type="checkbox" name="checkbox4vraag6" value=5 onchange='countPoints()'>Relatie<br>
-    <input type="checkbox" name="checkbox5vraag6" value=5 onchange='countPoints()'>Seksualiteit en intimiteit<br>
-    <input type="checkbox" name="checkbox6vraag6" value=2 onchange='countPoints()'>Sociale bezigheden en activiteiten<br>
-</div>
+<form id="tab1">
+    <h2>Ondersteuning bij lichamelijke verzorging</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=3 onchange='countPoints()'> <span class="label-text">ADL</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=1 onchange='countPoints()'><span class="label-text">Hygiëne</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=4 onchange='countPoints()'><span class="label-text">Voeding</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Kleding/zelfzorg</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=3 onchange='countPoints()'><span class="label-text">Mobiliteit</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=1 onchange='countPoints()'><span class="label-text">Goede nachtrust</span>
+        </label>
+    </div>
+</form>
 
 
 
-    <div class="col-md-offset-2 col-md-10">
-        <input id="submitBtn" type="submit" value="Bevestigen" class="btn btn-default" />
+
+
+<form id="tab2">
+    <h2>Ondersteuning bij psychisch welbevinden</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=9 onchange='countPoints()'> <span class="label-text">Diagnostisch onderzoek</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=7 onchange='countPoints()'><span class="label-text">Rouwverwerking<n</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=6 onchange='countPoints()'><span class="label-text">Depresssie</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Traumaverwerking</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Angst-, stress-, gedragsstoornissen</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=6 onchange='countPoints()'><span class="label-text">Dementie</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Verslaving</span>
+        </label>
+    </div>
+</form>
+
+
+
+<form id="tab3">
+    <h2>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=4 onchange='countPoints()'><span class="label-text">dagbesteding</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=4 onchange='countPoints()'><span class="label-text">dagbesteding</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Vrijetijds besteding</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Werk</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=4 onchange='countPoints()'><span class="label-text">Onderwijs</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Ontwikkelen van talent</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Trainingen</span>
+        </label>
+    </div>
+</form>
+
+<form id="tab4">
+    <h2>Ondersteuning bij maatschappelijk en huiselijke problematiek</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=9 onchange='countPoints()'> <span class="label-text">Verwerking na gebeurtenissen</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Seksueel misbruik<n</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Huiselijk geweld en aggressie</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Verslaving en overlast</span>
+        </label>
+    </div>
+</form>
+
+<form id="tab5">
+    <h2>Ondersteuning bij huisvesting, huishouden, en financiën</h2>
+    <div class="form-check">
+        <label>
+
+            <input type="checkbox" name="checkbox1vraag6" value=3 onchange='countPoints()'> <span class="label-text">Ondersteuning bij huisvesting, huishouden en financiën</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Begeleiding huishouden</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Ondersteuning administratie en financiën</span>
+        </label>
+    </div>
+</form>
+
+
+<form id="tab6">
+    <h2>Ondersteunen bij netwerk en relaties</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=2 onchange='countPoints()'> <span class="label-text">Sociale vaardigheden</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Assertiviteit</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Contacten met o.a. familie/vrienden</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=5 onchange='countPoints()'><span class="label-text">Relatie</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=5 onchange='countPoints()'><span class="label-text">Seksualiteit en intimiteit</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Sociale bezigheden en activiteiten</span>
+        </label>
     </div>
 
-
-
-
+</form>
 
 <p id="total">totaal hier</p>
 
 @section Scripts {
-<script type="text/javascript">
+    <script type="text/javascript">
 
        $(document).ready(function () {
         $('#submitBtn').on("click", function () {
@@ -135,7 +262,6 @@
 
 
 
-</script>
-    }
-
+    </script>
+}
 
