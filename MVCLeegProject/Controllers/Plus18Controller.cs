@@ -5,52 +5,79 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCLeegProject.Models;
+using System.Linq;
 
 namespace MVCLeegProject.Controllers
 {
     public class Plus18Controller : Controller
     {
+
+        DB_A42A9B_Aveleijn2018Entities4 db = new DB_A42A9B_Aveleijn2018Entities4();
+
         // GET: Plus18
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public JsonResult PostCheckBoxes(CheckBoxesModel model)
+        {
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
 
-        //public ActionResult Plus18Send(int totaalWaarde)
-        //{
+        public ActionResult ShowNumberOfIndication(List<string> values)
+        {
+            List<string> stringArray = new List<string>();
 
-        //    // Zet resultaat van quiz in ViewBag
+            foreach(var item in values)
+            {
+                stringArray.Add(db.checkBoxMaps.Where(b => b.checkBox_id == item).FirstOrDefault().beschrijving);
+            }
 
-
-        //    ViewBag.vraag1 = model.vraag1;
-
-        //    ViewBag.vraag2 = model.vraag2;
-
-        //    ViewBag.vraag3 = model.vraag3;
-
-        //    ViewBag.vraag4 = model.vraag4;
-
-        //    ViewBag.vraag5 = model.vraag5;
-
-        //    ViewBag.vraag6 = model.vraag6;
-
-        //    ViewBag.vraag7 = model.vraag7;
-
-        //    ViewBag.vraag8 = model.vraag8;
-
-        //    ViewBag.vraag9 = model.vraag9;
-
-        //    int totaalB = model.vraag1 + model.vraag2 + model.vraag3;
-        //    int totaalN = model.vraag4 + model.vraag5 + model.vraag6 + model.vraag7 + model.vraag8 + model.vraag9;
-
-        //    ViewBag.TotaalB = totaalB;
-        //    ViewBag.TotaalN = totaalN;
+            /*ResultCheckBoxModel result = new ResultCheckBoxModel
+            {
+                beschrijving = 
+            };*/
+            
+            return View();
+        }
 
 
+        public ActionResult Plus18Send(ResultVM model)
+        {
 
-        //    return RedirectToAction("Plus18Check");
-        //}
+            // Zet resultaat van quiz in ViewBag
+
+
+            /*ViewBag.indicatieB_id = model.IndicatieB_id;
+
+            ViewBag. = model.vraag2;
+
+            ViewBag.vraag3 = model.vraag3;
+
+            ViewBag.vraag4 = model.vraag4;
+
+            ViewBag.vraag5 = model.vraag5;
+
+            ViewBag.vraag6 = model.vraag6;
+
+            ViewBag.vraag7 = model.vraag7;
+
+            ViewBag.vraag8 = model.vraag8;
+
+            ViewBag.vraag9 = model.vraag9;
+
+            int totaalB = model.vraag1 + model.vraag2 + model.vraag3;
+            int totaalN = model.vraag4 + model.vraag5 + model.vraag6 + model.vraag7 + model.vraag8 + model.vraag9;
+
+            ViewBag.TotaalB = totaalB;
+            ViewBag.TotaalN = totaalN;*/
+
+
+
+            return RedirectToAction("Plus18Check");
+        }
 
 
         public ActionResult Plus18Check()
@@ -60,25 +87,20 @@ namespace MVCLeegProject.Controllers
 
             ResultVM result = new ResultVM();
 
-            IndicatieNiveau iN = new IndicatieNiveau();
-            IndicatieBehoeften iB = new IndicatieBehoeften();
-
-            iN = db.IndicatieNiveaux.Find(ViewBag.indicatieN);
-            iB = db.IndicatieBehoeftens.Find(ViewBag.indicatieB);
 
             result.IndicatieB_id = ViewBag.indicatieB_id;
-            result.Wet = iB.wet;
-            result.Kenmerken_inwoner = iB.kenmerken_inwoner;
-            result.Doel_ondersteuning = iB.doel_ondersteuning;
-            result.Ondersteuning = iB.ondersteuning;
+            result.Wet = ViewBag.wet;
+            result.Kenmerken_inwoner = ViewBag.kenmerken_inwoner;
+            result.Doel_ondersteuning = ViewBag.doel_ondersteuning;
+            result.Ondersteuning = ViewBag.ondersteuning;
 
-            result.IndicatieN_id = iN.indicatieN_id;
-            result.GedragsProblematiek = iN.gedragsProblematiek;
-            result.Context = iN.context;
-            result.Escalatie = iN.escalatie;
-            result.Motivatie = iN.motivatie;
-            result.OndersteuningN = iN.ondersteuning;
-            result.Veranderingen = iN.veranderingen;
+            result.IndicatieN_id = ViewBag.indicatieN_id;
+            result.GedragsProblematiek = ViewBag.gedragsProblematiek;
+            result.Context = ViewBag.context;
+            result.Escalatie = ViewBag.escalatie;
+            result.Motivatie = ViewBag.motivatie;
+            result.OndersteuningN = ViewBag.ondersteuning;
+            result.Veranderingen = ViewBag.veranderingen;
 
             //TODO: Advies 
             if (ViewBag.totaalN)

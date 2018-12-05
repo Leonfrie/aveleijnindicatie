@@ -4,6 +4,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<h3>Mate van beperking</h3>
+<input type="radio" name="radiovraag11" value="geen" /> Geen beperking <br />
+<input type="radio" name="radiovraag12" value="matig" /> Matige beperking (70-80 IQ) <br />
+<input type="radio" name="radiovraag13" value="licht" /> Lichte beperking (50-70) <br />
+<input type="radio" name="radiovraag14" value="zwaar" /> Zware beperking (< 50) <br />
+
+<h3>Zijn er kinderen in het spel?</h3>
+<input type="radio" name="radiovraag21" value=1 /> Ja <br />
+<input type="radio" name="radiovraag22" value=0 /> Nee <br />
+
+<h3>Is er sprake van zorgmijding?</h3>
+<input type="radio" name="radiovraag31" value=1 /> Ja <br />
+<input type="radio" name="radiovraag32" value=0 /> Nee <br />
+
 <h2>Index</h2>
 <div id="tab1">
     <p>Ondersteuning bij lichamelijke verzorging</p>
@@ -31,7 +46,7 @@
 <div id="tab3">
     <h3>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h3>
 
-    <input type="checkbox" name="checkbox1vraag3" value=4 onchange='countPoints()'> Zinvolle dagbesteding<br>
+    <input type="checkbox" name="checkbox1vraag3" value=4 onchange='countPoints()'>Zinvolle dagbesteding<br>
     <input type="checkbox" name="checkbox2vraag3" value=2 onchange='countPoints()'>Vrijetijds besteding<br>
     <input type="checkbox" name="checkbox3vraag3" value=2 onchange='countPoints()'>Werk<br>
     <input type="checkbox" name="checkbox4vraag3" value=4 onchange='countPoints()'>Onderwijs<br>
@@ -65,20 +80,52 @@
     <input type="checkbox" name="checkbox6vraag6" value=2 onchange='countPoints()'>Sociale bezigheden en activiteiten<br>
 </div>
 
+
+
+    <div class="col-md-offset-2 col-md-10">
+        <input id="submitBtn" type="submit" value="Bevestigen" class="btn btn-default" />
+    </div>
+
+
+
+
+
 <p id="total">totaal hier</p>
 
-
+@section Scripts {
 <script type="text/javascript">
+
+       $(document).ready(function () {
+        $('#submitBtn').on("click", function () {
+            var list = [];
+            $('input:checkbox:checked').each(function () { // iterate through each checked element.
+                list.push($(this).attr("name"));
+                console.log(list);
+            });
+            var postData = { values: list };
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("PostCheckBoxes", "Plus18")",
+                data: postData,
+                success: function (data) {
+                    var link = "@Url.Action("ShowNumberOfIndication", "Plus18", new { values = MVCLeegProject.Models.CheckBoxesModel.values })";
+                    window.location.href = link;
+                },
+                dataType: "json",
+                traditional: true
+            });
+        });
+    });
+
     function countPoints() {
         var total = 0;
 
         $('input:checkbox').change(function () {
-            
+
             $('input:checkbox:checked').each(function () { // iterate through each checked element.
                 total += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
             });
             $("#total").text(total);
-
         });
 
 
@@ -87,5 +134,8 @@
     };
 
 
+
 </script>
+    }
+
 
