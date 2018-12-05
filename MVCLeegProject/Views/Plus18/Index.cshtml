@@ -4,7 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h3>Mate van beperking</h3>
+<input type="radio" name="radiovraag11" value="geen" /> Geen beperking <br />
+<input type="radio" name="radiovraag12" value="matig" /> Matige beperking (70-80 IQ) <br />
+<input type="radio" name="radiovraag13" value="licht" /> Lichte beperking (50-70) <br />
+<input type="radio" name="radiovraag14" value="zwaar" /> Zware beperking (< 50) <br />
 
+<h3>Zijn er kinderen in het spel?</h3>
+<input type="radio" name="radiovraag21" value=1 /> Ja <br />
+<input type="radio" name="radiovraag22" value=0 /> Nee <br />
+
+<h3>Is er sprake van zorgmijding?</h3>
+<input type="radio" name="radiovraag31" value=1 /> Ja <br />
+<input type="radio" name="radiovraag32" value=0 /> Nee <br />
 
 
 <form id="tab1">
@@ -207,7 +219,31 @@
 
 <p id="total">totaal hier</p>
 
-<script type="text/javascript">
+@section Scripts {
+    <script type="text/javascript">
+
+       $(document).ready(function () {
+        $('#submitBtn').on("click", function () {
+            var list = [];
+            $('input:checkbox:checked').each(function () { // iterate through each checked element.
+                list.push($(this).attr("name"));
+                console.log(list);
+            });
+            var postData = { values: list };
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("PostCheckBoxes", "Plus18")",
+                data: postData,
+                success: function (data) {
+                    var link = "@Url.Action("ShowNumberOfIndication", "Plus18", new { values = MVCLeegProject.Models.CheckBoxesModel.values })";
+                    window.location.href = link;
+                },
+                dataType: "json",
+                traditional: true
+            });
+        });
+    });
+
     function countPoints() {
         var total = 0;
 
@@ -217,7 +253,6 @@
                 total += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
             });
             $("#total").text(total);
-
         });
 
 
@@ -226,5 +261,7 @@
     };
 
 
-</script>
+
+    </script>
+}
 

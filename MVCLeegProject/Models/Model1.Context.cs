@@ -33,5 +33,6 @@ namespace MVCLeegProject.Models
         public virtual DbSet<IndicatieBehoeften> IndicatieBehoeftens { get; set; }
         public virtual DbSet<IndicatieNiveau> IndicatieNiveaux { get; set; }
         public virtual DbSet<indicatieVragen> indicatieVragens { get; set; }
+        public virtual DbSet<checkBoxMap> checkBoxMaps { get; set; }
     }
 }

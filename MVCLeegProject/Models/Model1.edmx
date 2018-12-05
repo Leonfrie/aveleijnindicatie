@@ -66,6 +66,14 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="checkBoxMap">
+          <Key>
+            <PropertyRef Name="checkBox_id" />
+          </Key>
+          <Property Name="checkBox_id" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="beschrijving" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="value" Type="int" />
+        </EntityType>
         <EntityType Name="IndicatieBehoeften">
           <Key>
             <PropertyRef Name="indicatieB_id" />
@@ -88,13 +96,6 @@
           <Property Name="motivatie" Type="nvarchar" MaxLength="2000" />
           <Property Name="ondersteuning" Type="nvarchar" MaxLength="2000" />
           <Property Name="veranderingen" Type="nvarchar" MaxLength="2000" />
-        </EntityType>
-        <EntityType Name="indicatieVragen">
-          <Key>
-            <PropertyRef Name="indicatieV_id" />
-          </Key>
-          <Property Name="indicatieV_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="vraag" Type="nvarchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -159,9 +160,9 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="checkBoxMap" EntityType="Self.checkBoxMap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IndicatieBehoeften" EntityType="Self.IndicatieBehoeften" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IndicatieNiveau" EntityType="Self.IndicatieNiveau" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="indicatieVragen" EntityType="Self.indicatieVragen" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -318,6 +319,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="indicatieVragens" EntityType="DB_A42A9B_Aveleijn2018Model.indicatieVragen" />
+          <EntitySet Name="checkBoxMaps" EntityType="DB_A42A9B_Aveleijn2018Model.checkBoxMap" />
         </EntityContainer>
         <EntityType Name="indicatieVragen">
           <Key>
@@ -325,6 +327,14 @@
           </Key>
           <Property Name="indicatieV_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="vraag" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="checkBoxMap">
+          <Key>
+            <PropertyRef Name="checkBox_id" />
+          </Key>
+          <Property Name="checkBox_id" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="beschrijving" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -420,11 +430,12 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="indicatieVragens">
-            <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.indicatieVragen">
-              <MappingFragment StoreEntitySet="indicatieVragen">
-                <ScalarProperty Name="vraag" ColumnName="vraag" />
-                <ScalarProperty Name="indicatieV_id" ColumnName="indicatieV_id" />
+          <EntitySetMapping Name="checkBoxMaps">
+            <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.checkBoxMap">
+              <MappingFragment StoreEntitySet="checkBoxMap">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="beschrijving" ColumnName="beschrijving" />
+                <ScalarProperty Name="checkBox_id" ColumnName="checkBox_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
