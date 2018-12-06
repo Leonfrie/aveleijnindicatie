@@ -14,7 +14,7 @@ namespace MVCLeegProject.Controllers
         {
             DB_A42A9B_Aveleijn2018Entities4 db = new DB_A42A9B_Aveleijn2018Entities4();
 
-            //db.Clients.Find()
+            //db.Clients.
 
             return View();
         }
