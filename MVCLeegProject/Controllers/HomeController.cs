@@ -33,5 +33,11 @@ namespace MVCLeegProject.Controllers
 
             return View();
         }
+
+        public ActionResult doelen()
+        {
+
+            return View();
+        }
     }
 }
