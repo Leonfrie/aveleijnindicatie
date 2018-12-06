@@ -1,0 +1,125 @@
+﻿@model MVCLeegProject.Models._LocalSaveModel
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ondersteuningsbehoeften</h2>
+
+@{
+    bool Akannog = true;
+    bool Bkannog = true;
+    bool Ckannog = true;
+
+    switch (Model.MateBeperking)
+    {
+        case "geen":
+           // <p> er is geen matebeperking</p>
+            break;
+        case "Matig":
+           // <p> matebeperking is matig </p>
+            break;
+        case "licht":
+          //  <p> matebeperking is licht</p>
+            Akannog = false;
+            break;
+        case "zwaar":
+          //  <p> matebeperking is zwaar</p>
+            Akannog = false;
+            Bkannog = false;
+            break;
+        default:
+          //  <p> matebeperking is onbepaald</p>
+            break;
+
+    }
+
+    if (Model.Zorgmijding)
+    {
+        Akannog = false;
+    }
+}
+
+
+
+
+
+<h3>Mate van beperking:</h3>
+
+@if (Akannog)
+{
+    <input type="radio" name="beperking" value="A" /> <span>Type A</span><br />
+}
+@if (Bkannog)
+{
+    <input type="radio" name="beperking" value="B" /> <span>Type B</span><br />
+}
+@if (Ckannog)
+{
+    <input type="radio" name="beperking" value="C" /> <span>Type C</span><br />
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="w3-table-all" style="margin-top: 50px;">
+    <tr class="w3-green">
+        <th></th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+    </tr>
+    <tr>
+        <td>Gedragsproblematiek</td>
+        <td>Er is meestal geen of in beperkte mate sprake van gedragsproblematiek</td>
+        <td>Er kan sprake zijn van gedragsproblematiek die belemmerend werkt bij de uitvoering van de ondersteuning.</td>
+        <td>Er is meestal sprake van matige of ernstige gedragsproblematiek die belemmerend werkt bij de uitvoering van de ondersteuning.</td>
+    </tr>
+    <tr>
+        <td>Context</td>
+        <td>Er is sprake van een stabiele (ontwikkel en opvoed) context.</td>
+        <td>-</td>
+        <td>Er is geen stabiele (ontwikkel- en/of opvoed-) context.</td>
+    </tr>
+    <tr>
+        <td>Escalatie </td>
+        <td>De kans op risicovolle situaties en of escalatie is gering.</td>
+        <td>De kans op risicovolle situaties en of escalatie is aanwezig maar niet groot.</td>
+        <td>Er is hoog risico op escalatie/gevaar.</td>
+    </tr>
+    <tr>
+        <td>Motivatie </td>
+        <td>De inwoner of het gezinssysteem is gemotiveerd om ondersteuning te ontvangen.</td>
+        <td>De motivatie van de inwoner/gezinssysteem voor het volgen van de ondersteuning is wisselend.</td>
+        <td>De inwoner of het gezinssysteem is structureel niet of nauwelijks te motiveren tot het volgen van de ondersteuning of behandeling.</td>
+    </tr>
+    <tr>
+        <td>Ondersteuning </td>
+        <td>De inwoner en/of het cliëntsysteem kan afspraken maken over het moment van de ondersteuning.</td>
+        <td>-</td>
+        <td>
+            Met de inwoner/gezinssysteem is het niet mogelijk om afspraken te maken over de planning doordat de situatie sterk wisselend is en onvoorspelbaar: voortdurend is herziening van de planning van de ondersteuning nodig.
+
+            De ondersteuning is niet routinematig.
+
+            Er kan verscherpt toezicht nodig zijn.
+
+        </td>
+    </tr>
+    <tr>
+        <td>Veranderingen </td>
+        <td>De zorgvrager heeft voldoende inzicht: kan veranderingen in eigen ondersteuningsbehoefte signaleren en hierop reageren. </td>
+        <td>De inwoner of het gezinssysteem kan/kunnen veranderingen zelf signaleren, maar is/zijn onvoldoende in staat om hierop te reageren.</td>
+        <td>De inwoner of het gezinssysteem kan/kunnen veranderingen zelf in het geheel niet signaleren.</td>
+    </tr>
+</table>

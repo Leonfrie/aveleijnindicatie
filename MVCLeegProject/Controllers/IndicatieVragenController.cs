@@ -37,6 +37,26 @@ namespace MVCLeegProject.Controllers
 
             return View(_localSaveModel);
         }
+        
+        public ActionResult TweedeDeelIndicatie()
+        {
+            _LocalSaveModel _localSaveModel = new _LocalSaveModel
+            {
+                DomeinBeschrijvingen1 = LocalSaveModel.DomeinBeschrijvingen1,
+                DomeinBeschrijvingen2 = LocalSaveModel.DomeinBeschrijvingen2,
+                DomeinBeschrijvingen3 = LocalSaveModel.DomeinBeschrijvingen3,
+                DomeinBeschrijvingen4 = LocalSaveModel.DomeinBeschrijvingen4,
+                DomeinBeschrijvingen5 = LocalSaveModel.DomeinBeschrijvingen5,
+                DomeinBeschrijvingen6 = LocalSaveModel.DomeinBeschrijvingen6,
+                Points = LocalSaveModel.Points,
+                MateBeperking = LocalSaveModel.MateBeperking,
+                Kinderen = LocalSaveModel.Kinderen,
+                Zorgmijding = LocalSaveModel.Zorgmijding,
+                EersteDeelIndicatie = LocalSaveModel.EersteDeelIndicatie
+            };
+
+            return View(_localSaveModel);
+        }
 
         [HttpPost]
         public ActionResult AddToDomeinLocal(string _button, bool _buttonChecked)

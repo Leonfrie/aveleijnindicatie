@@ -27,7 +27,7 @@
 <ul class="w3-ul style="margin-top: 50px; margin-bottom: 50px;">
     <li><b>Verplichte velden</b></li>
     <li>Mate van beperking: @Model.MateBeperking</li>
-    @if (@Model.Kinderen = true)
+    @if (Model.Kinderen)
     {
         <li>Kinderen: Ja</li>
     }
@@ -35,7 +35,7 @@
     {
         <li>Kinderen: Nee</li>
     }
-    @if (@Model.Zorgmijding = true)
+    @if (Model.Zorgmijding)
     {
         <li>Zorgmijding: Ja</li>
     }
@@ -114,4 +114,4 @@
 
 
 <button class="w3-button a-blue" onclick="history.go(-1);">&laquo; Keuzes veranderen</button>
-<button class="w3-button a-blue" onclick="">Keuzes veranderen &raquo;</button>
+<button class="w3-button a-blue" onclick="location.href='@Url.Action("TweedeDeelIndicatie", "IndicatieVragen")';">Ga verder &raquo;</button>
