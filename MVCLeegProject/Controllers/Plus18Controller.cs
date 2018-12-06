@@ -21,28 +21,67 @@ namespace MVCLeegProject.Controllers
         }
 
         [HttpPost]
-        public JsonResult PostCheckBoxes(CheckBoxesModel model)
-        {
-            return Json(true, JsonRequestBehavior.AllowGet);
-        }
+        public ActionResult AddToDomeinLocal(string _button, bool _buttonChecked)
+        { 
+            var checkBox = db.checkBoxMaps.Where(c => c.checkBox_id.Equals(_button)).First();
 
-        public ActionResult ShowNumberOfIndication(List<string> values)
-        {
-            List<string> stringArray = new List<string>();
-
-            foreach(var item in values)
+            if(_buttonChecked)
             {
-                stringArray.Add(db.checkBoxMaps.Where(b => b.checkBox_id == item).FirstOrDefault().beschrijving);
+                LocalSaveModel.DomeinBeschrijvingen.Add(checkBox.beschrijving);
+                LocalSaveModel.Points += checkBox.value;
+            }
+            else
+            {
+                LocalSaveModel.DomeinBeschrijvingen.Remove(checkBox.beschrijving);
+                LocalSaveModel.Points -= checkBox.value;
             }
 
-            /*ResultCheckBoxModel result = new ResultCheckBoxModel
-            {
-                beschrijving = 
-            };*/
-            
-            return View();
+            return new EmptyResult();
         }
 
+        [HttpPost]
+        public ActionResult AddToExtraLocal(string _beperking, int _kinderenPoints, int _zorgmijdingPoints)
+        {
+            LocalSaveModel.MateBeperking = _beperking;
+
+            //START CALCULATE POINTS CHILDREN & CARE AVOIDANCE
+            if(!LocalSaveModel.Kinderen)
+            {
+                LocalSaveModel.Points += _kinderenPoints;
+            }
+            if (!LocalSaveModel.Zorgmijding)
+            {
+                LocalSaveModel.Points += _zorgmijdingPoints;
+            }
+            if(LocalSaveModel.Kinderen && _kinderenPoints == 0)
+            {
+                LocalSaveModel.Points -= 6;
+            }
+            if (LocalSaveModel.Zorgmijding && _zorgmijdingPoints == 0)
+            {
+                LocalSaveModel.Points -= 4;
+            }
+            //END CALCULATE POINTS CHILDREN & CARE AVOIDANCE
+
+            LocalSaveModel.Kinderen = _kinderenPoints == 0 ? false : true;
+            LocalSaveModel.Zorgmijding = _zorgmijdingPoints == 0 ? false : true;
+
+            return new EmptyResult();
+        }
+
+        public ActionResult CalculateFirst()
+        {
+            _LocalSaveModel _localSaveModel = new _LocalSaveModel
+            {
+                DomeinBeschrijvingen = LocalSaveModel.DomeinBeschrijvingen,
+                Points = LocalSaveModel.Points,
+                MateBeperking = LocalSaveModel.MateBeperking,
+                Kinderen = LocalSaveModel.Kinderen,
+                Zorgmijding = LocalSaveModel.Zorgmijding
+            };
+
+            return View("Eerste-deel-indicatie", _localSaveModel);
+        }
 
         public ActionResult Plus18Send(ResultVM model)
         {

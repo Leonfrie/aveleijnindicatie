@@ -16,6 +16,6 @@ namespace MVCLeegProject.Models
     {
         public string checkBox_id { get; set; }
         public string beschrijving { get; set; }
-        public Nullable<int> value { get; set; }
+        public int value { get; set; }
     }
 }
