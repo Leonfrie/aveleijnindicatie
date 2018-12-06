@@ -27,6 +27,19 @@ namespace MVCLeegProject.Controllers
             return View(_localSaveModel);
         }
 
+        // GET: Plus18
+        public ActionResult Main(bool volwassene)
+        {
+            LocalSaveModel.Volwassene = volwassene;
+
+            _LocalSaveModel _localSaveModel = new _LocalSaveModel
+            {
+                Volwassene = LocalSaveModel.Volwassene
+            };
+
+            return View(_localSaveModel);
+        }
+
         [HttpPost]
         public ActionResult AddToDomeinLocal(string _button, bool _buttonChecked)
         {
