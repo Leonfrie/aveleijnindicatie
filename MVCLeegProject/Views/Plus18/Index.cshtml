@@ -10,13 +10,57 @@
 <input type="radio" name="radiovraag13" value="licht" /> Lichte beperking (50-70) <br />
 <input type="radio" name="radiovraag14" value="zwaar" /> Zware beperking (< 50) <br />
 
-<h3>Zijn er kinderen in het spel?</h3>
-<input type="radio" name="radiovraag21" value=1 /> Ja <br />
-<input type="radio" name="radiovraag22" value=0 /> Nee <br />
+<form id="matevanbeperking">
+    <h2>Mate van beperking</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value="geen" onchange='countPoints()'> <span class="label-text">Geen beperking</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value="matig" onchange='countPoints()'><span class="label-text">Matige beperking (70-80 IQ)</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value="licht" onchange='countPoints()'><span class="label-text">Lichte beperking (50-70)</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value="zwaar" onchange='countPoints()'><span class="label-text">Zware beperking (< 50)</span>
+        </label>
+    </div>
+</form>
 
-<h3>Is er sprake van zorgmijding?</h3>
-<input type="radio" name="radiovraag31" value=1 /> Ja <br />
-<input type="radio" name="radiovraag32" value=0 /> Nee <br />
+<form id="kinderen">
+    <h2>Zijn er kinderen in het spel?</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=1 onchange='countPoints()'> <span class="label-text">Ja</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=0 onchange='countPoints()'><span class="label-text">Nee</span>
+        </label>
+    </div>
+</form>
+
+<form id="zorgmeiding">
+    <h2>Is er sprake van zorgmijding?</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag6" value=1 onchange='countPoints()'> <span class="label-text">Ja</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag6" value=0 onchange='countPoints()'><span class="label-text">Nee</span>
+        </label>
+    </div>
+</form>
 
 
 <form id="tab1">
