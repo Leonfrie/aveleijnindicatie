@@ -12,35 +12,36 @@
 
 </head>
 <body>
+    <div>
+        <!-- Sidebar/menu -->
+        <nav class="w3-sidebar kleurtekst w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+            <br>
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+            <div class="w3-container">
+                <img style="width: 95%;height: 95%;" src="~/Content/img/tzmlogo.png" />
+            </div>
+            <div class="w3-bar-block kleurtekst">
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button w3-hover-white kleurtekst" })
 
-    <!-- Sidebar/menu -->
-    <nav class="w3-sidebar kleurtekst w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
-        <br>
-        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-        <div class="w3-container">
-            <img style="width: 95%;height: 95%;" src="~/Content/img/tzmlogo.png" />
-        </div>
-        <div class="w3-bar-block kleurtekst">
-            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button w3-hover-white kleurtekst" })
+                <br />
+                <br />
+                @Html.Partial("_LoginPartial")
+            </div>
+        </nav>
 
-            <br />
-            <br />
-            @Html.Partial("_LoginPartial")
-        </div>
-    </nav>
+        <!-- Top menu on small screens -->
+        <header class="w3-container kleurtekst w3-top w3-hide-large w3-xlarge w3-padding">
+            <a href="javascript:void(0)" class="w3-button kleurtekst w3-margin-right" onclick="w3_open()">☰</a>
+            <span>Company Name</span>
+        </header>
 
-    <!-- Top menu on small screens -->
-    <header class="w3-container w3-top w3-hide-large w3-yellow w3-xlarge w3-padding">
-        <a href="javascript:void(0)" class="w3-button w3-yellow w3-margin-right" onclick="w3_open()">☰</a>
-        <span>Company Name</span>
-    </header>
-
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="w3-overlay w3-hide-large kleurtekst" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 
-    <div class="container body-content">
-        @RenderBody()
+        <div class="container">  @RenderBody()</div>
+    
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - CSE week Twente </p>
@@ -55,11 +56,11 @@
 <style>
     .kleurtekst {
         color: #006070;
-        background-color: #facd02;
+        background-color: #ea675b;
     }
 
     .jumbotron {
-        background-color: #facd02;
+        background-color: #ea675b;
         color: #006070;
     }
 
