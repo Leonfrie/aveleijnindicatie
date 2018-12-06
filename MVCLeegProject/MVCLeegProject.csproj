@@ -343,6 +343,7 @@
     <Content Include="Views\Home\categories.cshtml" />
     <Content Include="Views\IndicatieVragen\Eerste-deel-indicatie.cshtml" />
     <Content Include="Views\IndicatieVragen\Index.cshtml" />
+    <Content Include="Views\IndicatieVragen\Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

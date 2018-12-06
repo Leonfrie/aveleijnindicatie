@@ -5,38 +5,136 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (Model.Volwassene)
-{
-    <h2>Volwassene</h2>
-}
-else
-{
-    <h2>Jeugd</h2>
-}
+<div id="modalTab1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-<h3>Mate van beperking:</h3>
-<input type="radio" name="beperking" value="geen" /> <span>Geen beperking</span><br />
-<input type="radio" name="beperking" value="matig" /> <span>Matige beperking(70 - 80 IQ)</span> <br />
-<input type="radio" name="beperking" value="licht" /> <span>Lichte beperking(50 - 70)</span> <br />
-<input type="radio" name="beperking" value="zwaar" /> <span>Zware beperking(< 50)</span> <br />
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lichamelijke gezondheid en zelfverzorging</h4>
+            </div>
+            <div class="modal-body">
+                <p>Lichamelijke gezondheid en zelfverzorging betreffen het uitvoeren van lichamelijke en dagelijkse routine-activiteiten, zoals lopen, eten, aan- en uitkleden. Veel mensen met een verstandelijke beperking hebben naast hun verstandelijke beperking een medische aandoening. Vooral naarmate ze ouder worden, zal het lichamelijk functioneren meer aandacht behoeven. Aveleijn biedt ondersteuning bij een gezond leven.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
 
-<h3> Is er sprake van zorgmijding?</h3>
-<input type="radio" name="zorgmijding" value=3 /> <span>Ja</span> <br />
-<input type="radio" name="zorgmijding" value=0 /> <span>Nee</span> <br />
+    </div>
+</div>
 
-@if (Model.Volwassene)
-{
-    <h3> Zijn er kinderen in het spel?</h3>
-    <input type="radio" name="kinderen" value=3 /> <span>Ja</span> <br />
-    <input type="radio" name="kinderen" value=0 /> <span>Nee</span> <br />
-}
+<div id="modalTab2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ondersteuning bij psychisch welbevinden</h4>
+            </div>
+            <div class="modal-body">
+                <p>Hoe kunnen we ervoor zorgen dat mensen een positief zelfbeeld hebben en tevreden zijn? Aveleijn ondersteunt mensen en hun omgeving bij hun emotioneel welbevinden en biedt begeleiding, therapie en behandeling voor mensen met psychosociale en/of psychiatrische problemen. Het gaat dan bijvoorbeeld over wat het betekent als iemand een verstandelijke beperking heeft, begeleiding bij het levenseinde van mensen, en diagnostisch onderzoek.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalTab3" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ondersteuning bij zelfredzaamheid en zelfstandigheid</h4>
+            </div>
+            <div class="modal-body">
+                <p>De WMO streeft naar sociale inclusie en participatie, ook wanneer mensen een beperking hebben. Ondersteuning door Aveleijn is helemaal gericht op het meedoen in de maatschappij. Denk aan zelfstandig reizen, boodschappen doen, contacten met de juiste instanties, huisartsbezoek en het vinden van activiteiten om de vrije tijd in te vullen. We leren mensen de vaardigheden, motiveren ze om actie te ondernemen en soms gaan we mee om ter plekke te ondersteunen. </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalTab4" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ondersteuning bij maatschappelijke en huiselijke problematiek</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Mee kunnen doen in de maatschappij is een belangrijk domein van kwaliteit van bestaan. Dit heeft alles te maken met maatschappelijke aanpassing en sociale inclusie. Aveleijn ondersteunt hierbij door geen norm op te leggen aan mensen, maar cliënten te begeleiden in bijvoorbeeld een goede persoonlijke verzorging, het beperken van overlast en bemiddeling bij overlast met buren.
+                    Ook veiligheid is een specifiek onderdeel dat bijdraagt aan het emotioneel welbevinden van mensen. Aveleijn kan dit ondersteunen door met een risicoscan de veiligheidsrisico’s rondom een persoon in kaart te brengen, om vervolgens daarop gerichte begeleiding te bieden. Denk aan fysieke risico’s als brandgevaar en agressie.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalTab5" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Huisvesting en huishouden</h4>
+            </div>
+            <div class="modal-body">
+                <p>Een goed en schoon onderkomen hebben draagt bij aan het welbevinden. Aveleijn ondersteunt mensen bij huisvesting en huishouding door vaardigheden te leren zoals het maken van een weekplanning en kleding strijken. Soms is alleen motivering voldoende en wanneer nodig nemen we taken over. Ook ondersteunen we door advies te geven over hoe een woonplek in te richten bij specifieke zorgvragen.</p>
+                <h4>Financieel functioneren</h4>
+                <p>Mensen met een verstandelijke beperking ervaren vaak problemen bij hun administratie of het houden van financieel overzicht. Dit uit zich vaak in betalingsachterstanden of schulden. Aveleijn helpt bij het aanbrengen van orde in de administratie en financiën. Vaak is de ondersteuning een eerste stap richting bewind voering en schuldhulpverlening. Hierbij gaat het om helpen, motiveren of doorverwijzen en monitoren.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalTab6" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ondersteuning bij netwerk en relaties</h4>
+            </div>
+            <div class="modal-body">
+                <p>Sociale inclusie en goede interpersoonlijke relaties zijn belangrijk voor iedereen. Een goed netwerk kan ondersteunend zijn voor mensen met een hulpvraag. Aveleijn kan mensen met een verstandelijke handicap ondersteunen bij het opbouwen en onderhouden van een netwerk. We stimuleren mensen om deel te nemen aan activiteiten in hun buurt en waar dat een stapje te ver is organiseren we zelfactiviteiten om mensen te ontmoeten. Daarnaast hebben we ook trainingen rondom sociale vaardigheden en weerbaarheid.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 
 <form id="tab1">
-    <button type="button" class="btn fa fa-info"></button>
+    <button type="button" class="btn btn-lg fa fa-info" data-toggle="modal" data-target="#modalTab1"></button><br />
     <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTab1">
-        <h2>Ondersteuning bij lichamelijke verzorging</h2>
+        <h3>Ondersteuning bij lichamelijke verzorging</h3>
     </button>
     <div class="collapse" id="collapseTab1">
         <div class="form-check">
@@ -86,179 +184,191 @@ else
 
 
 <form id="tab2">
-    <button type="button" class="btn fa fa-info"></button>
-    <h2 data-toggle="collapse" data-target="#collapseTab2">Ondersteuning bij psychisch welbevinden </h2>
+    <button type="button" class="btn btn-lg fa fa-info" data-toggle="modal" data-target="#modalTab2"></button><br />
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTab2">
+        <h3 >Ondersteuning bij psychisch welbevinden </h3>
+        </button>
 
-    <div id="collapseTab2" class="collapse">
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox1vraag2" value=9> <span class="label-text">Diagnostisch onderzoek</span>
-            </label>
+        <div id="collapseTab2" class="collapse">
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox1vraag2" value=9> <span class="label-text">Diagnostisch onderzoek</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox2vraag2" value=7><span class="label-text">Rouwverwerking</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox3vraag2" value=6><span class="label-text">Depresssie</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox4vraag2" value=9><span class="label-text">Traumaverwerking</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox5vraag2" value=9><span class="label-text">Angst-, stress-, gedragsstoornissen</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox6vraag2" value=6><span class="label-text">Dementie</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox7vraag2" value=9><span class="label-text">Verslaving</span>
+                </label>
+            </div>
         </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox2vraag2" value=7><span class="label-text">Rouwverwerking</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox3vraag2" value=6><span class="label-text">Depresssie</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox4vraag2" value=9><span class="label-text">Traumaverwerking</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox5vraag2" value=9><span class="label-text">Angst-, stress-, gedragsstoornissen</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox6vraag2" value=6><span class="label-text">Dementie</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox7vraag2" value=9><span class="label-text">Verslaving</span>
-            </label>
-        </div>
-    </div>
 </form>
 
 
 
 <form id="tab3">
-    <button type="button" class="btn fa fa-info"></button>
-    <h2 data-toggle="collapse" data-target="#collapseTab3">Ondersteuning bij zelfredzaamheid en zelfstandigheid</h2>
-    <div id="collapseTab3" class="collapse">
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox1vraag3" value=4><span class="label-text">Zinvolle dagbesteding</span>
-            </label>
+    <button type="button" class="btn btn-lg fa fa-info" data-toggle="modal" data-target="#modalTab3"></button><br />
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTab3">
+        <h3>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h3>
+        </button>
+        <div id="collapseTab3" class="collapse">
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox1vraag3" value=4><span class="label-text">Zinvolle dagbesteding</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox2vraag3" value=2><span class="label-text">Vrijetijds besteding</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox3vraag3" value=2><span class="label-text">Werk</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox4vraag3" value=4><span class="label-text">Onderwijs</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox5vraag3" value=2><span class="label-text">Ontwikkelen van talent</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox6vraag3" value=2><span class="label-text">Trainingen</span>
+                </label>
+            </div>
         </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox2vraag3" value=2><span class="label-text">Vrijetijds besteding</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox3vraag3" value=2><span class="label-text">Werk</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox4vraag3" value=4><span class="label-text">Onderwijs</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox5vraag3" value=2><span class="label-text">Ontwikkelen van talent</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox6vraag3" value=2><span class="label-text">Trainingen</span>
-            </label>
-        </div>
-    </div>
 
 
 
 </form>
 
 <form id="tab4">
-    <button type="button" class="btn fa fa-info"></button>
-    <h2 data-toggle="collapse" data-target="#collapseTab4">Ondersteuning bij maatschappelijke en huiselijke problematiek </h2>
-    <div class="collapse" id="collapseTab4">
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox1vraag4" value=9> <span class="label-text">Verwerking na gebeurtenissen</span>
-            </label>
+    <button type="button" class="btn btn-lg fa fa-info" data-toggle="modal" data-target="#modalTab4"></button><br />
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTab4">
+        <h3>Ondersteuning bij maatschappelijke en huiselijke problematiek </h3>
+        </button>
+        <div class="collapse" id="collapseTab4">
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox1vraag4" value=9> <span class="label-text">Verwerking na gebeurtenissen</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox2vraag4" value=9><span class="label-text">Seksueel misbruik<n</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox3vraag4" value=9><span class="label-text">Huiselijk geweld en aggressie</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox4vraag4" value=9><span class="label-text">Verslaving en overlast</span>
+                </label>
+            </div>
         </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox2vraag4" value=9><span class="label-text">Seksueel misbruik<n</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox3vraag4" value=9><span class="label-text">Huiselijk geweld en aggressie</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox4vraag4" value=9><span class="label-text">Verslaving en overlast</span>
-            </label>
-        </div>
-    </div>
 </form>
 
 <form id="tab5">
     <div class="form-check">
-        <button type="button" class="btn fa fa-info"></button>
-        <h2 data-toggle="collapse" data-target="#collapseTab5">Huisvesting en huishouden</h2>
-        <div class="collapse" id="collapseTab5">
-            <div class="form-check">
-                <label>
+        <button type="button" class="btn btn-lg fa fa-info" data-toggle="modal" data-target="#modalTab5"></button><br />
+        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTab5">
+            <h3>Huisvesting en huishouden</h3>
+            </button>
+            <div class="collapse" id="collapseTab5">
+                <div class="form-check">
+                    <label>
 
-                    <input type="checkbox" name="checkbox1vraag5" value=3> <span class="label-text">Ondersteuning bij huisvesting, huishouden en financiën</span>
-                </label>
+                        <input type="checkbox" name="checkbox1vraag5" value=3> <span class="label-text">Ondersteuning bij huisvesting, huishouden en financiën</span>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label>
+                        <input type="checkbox" name="checkbox2vraag5" value=2><span class="label-text">Begeleiding huishouden</span>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label>
+                        <input type="checkbox" name="checkbox3vraag5" value=2><span class="label-text">Ondersteuning administratie en financiën</span>
+                    </label>
+                </div>
             </div>
-            <div class="form-check">
-                <label>
-                    <input type="checkbox" name="checkbox2vraag5" value=2><span class="label-text">Begeleiding huishouden</span>
-                </label>
-            </div>
-            <div class="form-check">
-                <label>
-                    <input type="checkbox" name="checkbox3vraag5" value=2><span class="label-text">Ondersteuning administratie en financiën</span>
-                </label>
-            </div>
-        </div>
     </div>
 </form>
 
 
 <form id="tab6">
-    <button type="button" class="btn fa fa-info"></button>
-    <h2 data-toggle="collapse" data-target="#collapseTab6">Ondersteunen bij netwerk en relaties </h2>
-    <div class="collapse" id="collapseTaba6">
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox1vraag6" value=2> <span class="label-text">Sociale vaardigheden</span>
-            </label>
+    <button type="button" class="btn btn-lg fa fa-info" data-toggle="modal" data-target="#modalTab6"></button><br />
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseTab6">
+        <h3>Ondersteunen bij netwerk en relaties </h3>
+        </button>
+        <div class="collapse" id="collapseTaba6">
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox1vraag6" value=2> <span class="label-text">Sociale vaardigheden</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox2vraag6" value=2><span class="label-text">Assertiviteit</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox3vraag6" value=2><span class="label-text">Contacten met o.a. familie/vrienden</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox4vraag6" value=5><span class="label-text">Relatie</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox5vraag6" value=5><span class="label-text">Seksualiteit en intimiteit</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <label>
+                    <input type="checkbox" name="checkbox6vraag6" value=2><span class="label-text">Sociale bezigheden en activiteiten</span>
+                </label>
+            </div>
         </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox2vraag6" value=2><span class="label-text">Assertiviteit</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox3vraag6" value=2><span class="label-text">Contacten met o.a. familie/vrienden</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox4vraag6" value=5><span class="label-text">Relatie</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox5vraag6" value=5><span class="label-text">Seksualiteit en intimiteit</span>
-            </label>
-        </div>
-        <div class="form-check">
-            <label>
-                <input type="checkbox" name="checkbox6vraag6" value=2><span class="label-text">Sociale bezigheden en activiteiten</span>
-            </label>
-        </div>
-    </div>
 </form>
+
+<br />
 
 <button id="calculateFirst" class="w3-button a-blue">Bereken eerste deel indicatie &raquo;</button>
 
