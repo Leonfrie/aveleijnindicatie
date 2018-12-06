@@ -4,9 +4,6 @@
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Indicatie</h2>
-
 <p>
     Aan de hand van de door u opgegeven gevens hebben wij uw client de volgdende indicatie kunnen geven: <br />
     U kunt de antwoorden die u heeft ingevuld onderin terugvinden
@@ -27,83 +24,94 @@
 }
 
 
-
-@foreach (var item in Model.DomeinBeschrijvingen1)
-{
-    if (a == 0)
+<ul class="w3-ul style="margin-top: 50px; margin-bottom: 50px;">
+    <li><b>Verplichte velden</b></li>
+    <li>Mate van beperking: @Model.MateBeperking</li>
+    @if (@Model.Kinderen = false)
     {
-        <h3>Ondersteuning bij lichamelijke verzorging</h3>
+        <li>Kinderen: Geen</li>
     }
-    <label>@item</label><br />
-    a++;
-}
-
-
-
-@foreach (var item in Model.DomeinBeschrijvingen2)
-{
-    if (b == 0)
+    else
     {
-        <h3>Ondersteuning bij psychisch welbevinden</h3>
+        <li>Kinderen: Ja</li>
     }
-    <label>@item</label><br />
-    b++;
-}
-
-@foreach (var item in Model.DomeinBeschrijvingen3)
-{
-    if (c == 0)
+    @if (@Model.Zorgmijding = false)
     {
-        <h3>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h3>
+        <li>Zorgmijding: Neen</li>
     }
-    <label>@item</label><br />
-    c++;
-}
-
-@foreach (var item in Model.DomeinBeschrijvingen4)
-{
-    if (d == 0)
+    else
     {
-        <h3>Ondersteuning bij maatschappelijke en huiselijke problematiek</h3>
+        <li>Zorgmijding: Ja</li>
     }
-    <label>@item</label><br />
-    d++;
-}
 
-@foreach (var item in Model.DomeinBeschrijvingen5)
-{
-    if (e == 0)
+
+
+
+
+
+    @foreach (var item in Model.DomeinBeschrijvingen1)
     {
-        <h3>Ondersteuning bij huisvesting, huishouden, en financiën</h3>
+        if (a == 0)
+        {
+            <li><b>Ondersteuning bij lichamelijke verzorging</b></li>
+        }
+        <li>@item</li>
+        a++;
     }
-    <label>@item</label><br />
-    e++;
-}
-
-@foreach (var item in Model.DomeinBeschrijvingen6)
-{
-    if (f == 0)
+    @foreach (var item in Model.DomeinBeschrijvingen2)
     {
-        <h3>Ondersteuning bij netwerk en relaties</h3>
+        if (b == 0)
+        {
+            <li><b>Ondersteuning bij psychisch welbevinden</b></li>
+        }
+        <li>@item</li>
+        b++;
     }
-    <label>@item</label><br />
-    f++;
-}
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-Mate van beperking: @Model.MateBeperking <br />
-Kinderen: @Model.Kinderen <br />
-Zorgmijding: @Model.Zorgmijding
+    @foreach (var item in Model.DomeinBeschrijvingen3)
+    {
+        if (c == 0)
+        {
+            <li><b>Ondersteuning bij zelfredzaamheid en zelfstandigheid</b></li>
+        }
+        <li>@item</li>
+        c++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen4)
+    {
+        if (d == 0)
+        {
+            <li><b>Ondersteuning bij maatschappelijke en huiselijke problematiek</b></li>
+        }
+        <li>@item</li>
+        d++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen5)
+    {
+        if (e == 0)
+        {
+            <li><b>Ondersteuning bij huisvesting, huishouden, en financiën</b></li>
+        }
+        <li>@item</li>
+        e++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen6)
+    {
+        if (f == 0)
+        {
+            <li><b>Ondersteuning bij netwerk en relaties</b></li>
+        }
+        <li>@item</li>
+        f++;
+    }
 
+</ul>
 <br />
 
 
-<br />
+
+
+
+
 
 <button class="w3-button a-blue" onclick="history.go(-1);">&laquo; Keuzes veranderen</button>
 <button class="w3-button a-blue" onclick="">Keuzes veranderen &raquo;</button>
