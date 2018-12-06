@@ -31,12 +31,16 @@ else
     <input type="radio" name="kinderen" value=0 /> <span>Nee</span> <br />
 }
 
+<br />
+
+<button id="indicatieVragen" class="w3-button a-blue">Ga verder &raquo;</button>
+
 @section Scripts {
 
     <script>
         var kinderen = false;
 
-        $("#calculateFirst").on("click", function () {
+        $("#indicatieVragen").on("click", function () {
             kinderen = @Json.Encode(Model.Volwassene);
             $.ajax({
                 url: "@Url.Action("AddToExtraLocal", "IndicatieVragen")",
@@ -49,7 +53,7 @@ else
                 },
                 method: "POST",
                 success: function (data) {
-                    var link = "@Url.Action("CalculateFirst", "IndicatieVragen")";
+                    var link = "@Url.Action("Index", "IndicatieVragen")";
                     window.location.href = link;
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
