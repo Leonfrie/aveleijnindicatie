@@ -34,6 +34,11 @@ namespace MVCLeegProject.Models
         public string MateBeperking;
         public bool Kinderen;
         public bool Zorgmijding;
+        public string Voornaam;
+        public string Achternaam;
+        public DateTime Geboortedatum;
+        public string Clientnummer;
+        public string Commentaar;
         public int EersteDeelIndicatie;
         public string TweedeDeelIndicatie;
         public bool Volwassene = false;

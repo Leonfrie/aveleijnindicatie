@@ -12,22 +12,18 @@ namespace MVCLeegProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
+        public Category()
         {
-            this.Formulier_tt = new HashSet<Formulier_tt>();
+            this.checkBoxMaps = new HashSet<checkBoxMap>();
         }
     
-        public string clientnummer { get; set; }
-        public string voornaam { get; set; }
-        public string achternaam { get; set; }
-        public System.DateTime geboortedatum { get; set; }
-        public string Behandelaar { get; set; }
+        public int category_id { get; set; }
+        public string CategoryString { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Formulier_tt> Formulier_tt { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual ICollection<checkBoxMap> checkBoxMaps { get; set; }
     }
 }

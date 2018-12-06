@@ -22,6 +22,7 @@ namespace MVCLeegProject.Models
     
         public int result_id { get; set; }
         public string pickedBoxes { get; set; }
+        public string commentaar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Formulier_tt> Formulier_tt { get; set; }

@@ -17,5 +17,8 @@ namespace MVCLeegProject.Models
         public string checkBox_id { get; set; }
         public string beschrijving { get; set; }
         public Nullable<int> value { get; set; }
+        public Nullable<int> category_id { get; set; }
+    
+        public virtual Category Category { get; set; }
     }
 }
