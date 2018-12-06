@@ -21,6 +21,9 @@
         <EntityTypeShape EntityType="DB_A42A9B_Aveleijn2018Model.Result" Width="1.5" PointX="7.375" PointY="7.25" />
         <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.FK__Formulier__Clien__5165187F" />
         <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.FK__Formulier__resul__5070F446" />
+        <EntityTypeShape EntityType="DB_A42A9B_Aveleijn2018Model.Category" Width="1.5" PointX="5.125" PointY="10" />
+        <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.AspNetUser_FK" />
+        <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.Category_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

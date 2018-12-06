@@ -36,5 +36,6 @@ namespace MVCLeegProject.Models
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Formulier_tt> Formulier_tt { get; set; }
         public virtual DbSet<Result> Results { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
     }
 }

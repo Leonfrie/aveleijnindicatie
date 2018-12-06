@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using MVCLeegProject.Models;
 using System.Linq;
 using System.Text;
+using Microsoft.AspNet.Identity;
 
 namespace MVCLeegProject.Controllers
 {
@@ -198,7 +199,7 @@ namespace MVCLeegProject.Controllers
                     client.voornaam = model.Voornaam;
                     client.achternaam = model.Achternaam;
                     client.geboortedatum = model.Geboortedatum;
-                    client.Behandelaar = User.Identity.ToString();
+                    client.Behandelaar = User.Identity.GetUserId();
 
                     db.Clients.Add(client);
                 }
