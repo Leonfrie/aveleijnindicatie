@@ -1,0 +1,68 @@
+﻿@model MVCLeegProject.Models._LocalSaveModel
+
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Volwassene)
+{
+    <h2>Volwassene</h2>
+}
+else
+{
+    <h2>Jeugd</h2>
+}
+
+<h3>Mate van beperking:</h3>
+<input type="radio" name="beperking" value="geen" /> <span>Geen beperking</span><br />
+<input type="radio" name="beperking" value="matig" /> <span>Matige beperking(70 - 80 IQ)</span> <br />
+<input type="radio" name="beperking" value="licht" /> <span>Lichte beperking(50 - 70)</span> <br />
+<input type="radio" name="beperking" value="zwaar" /> <span>Zware beperking(< 50)</span> <br />
+
+<h3> Is er sprake van zorgmijding?</h3>
+<input type="radio" name="zorgmijding" value=3 /> <span>Ja</span> <br />
+<input type="radio" name="zorgmijding" value=0 /> <span>Nee</span> <br />
+
+@if (Model.Volwassene)
+{
+    <h3> Zijn er kinderen in het spel?</h3>
+    <input type="radio" name="kinderen" value=3 /> <span>Ja</span> <br />
+    <input type="radio" name="kinderen" value=0 /> <span>Nee</span> <br />
+}
+
+<br />
+
+<button id="indicatieVragen" class="w3-button a-blue">Ga verder &raquo;</button>
+
+@section Scripts {
+
+    <script>
+        var kinderen = false;
+
+        $("#indicatieVragen").on("click", function () {
+            kinderen = @Json.Encode(Model.Volwassene);
+            $.ajax({
+                url: "@Url.Action("AddToExtraLocal", "IndicatieVragen")",
+                data: {
+                    _beperking: $('input[name=beperking]:checked').val(),
+                    //_kinderenBool: $('input[name=kinderen]').is(":checked"),
+                    _kinderenPoints: kinderen ? $('input[name=kinderen]:checked').val() : 0,
+                    //_zorgmijdingBool: $('input[name=zorgmijding]').is(":checked"),
+                    _zorgmijdingPoints: $('input[name=zorgmijding]:checked').val(),
+                },
+                method: "POST",
+                success: function (data) {
+                    var link = "@Url.Action("Index", "IndicatieVragen")";
+                    window.location.href = link;
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 404) {
+                        return;
+                    }
+                }
+            });
+        });
+    </script>
+
+}

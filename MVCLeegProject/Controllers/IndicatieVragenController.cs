@@ -16,7 +16,18 @@ namespace MVCLeegProject.Controllers
         DB_A42A9B_Aveleijn2018Entities4 db = new DB_A42A9B_Aveleijn2018Entities4();
 
         // GET: Plus18
-        public ActionResult Index(bool volwassene)
+        public ActionResult Index()
+        {
+            _LocalSaveModel _localSaveModel = new _LocalSaveModel
+            {
+                Volwassene = LocalSaveModel.Volwassene
+            };
+
+            return View(_localSaveModel);
+        }
+
+        // GET: Plus18
+        public ActionResult Main(bool volwassene)
         {
             LocalSaveModel.Volwassene = volwassene;
 

@@ -201,7 +201,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndicatieVragenController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\Onder18Controller.cs" />
     <Compile Include="Controllers\OverzichtController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -342,13 +341,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\categories.cshtml" />
-    <Content Include="Views\Plus18\Index.cshtml" />
-    <Content Include="Views\Plus18\Eerste-deel-indicatie.cshtml" />
+    <Content Include="Views\IndicatieVragen\Eerste-deel-indicatie.cshtml" />
+    <Content Include="Views\IndicatieVragen\Index.cshtml" />
+    <Content Include="Views\IndicatieVragen\Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\" />
-    <Folder Include="Views\Onder18\" />
     <Folder Include="Views\Overzicht\" />
   </ItemGroup>
   <ItemGroup>
