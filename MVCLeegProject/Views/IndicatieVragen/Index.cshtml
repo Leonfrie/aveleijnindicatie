@@ -1,68 +1,81 @@
-﻿
+﻿@model MVCLeegProject.Models._LocalSaveModel
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Model.Volwassene)
+{
+    <h2>Volwassene</h2>
+}
+else
+{
+    <h2>Jeugd</h2>
+}
+
 <h3>Mate van beperking:</h3>
-<input type="radio" name="beperking" value="geen" /> Geen beperking <br />
-<input type="radio" name="beperking" value="matig" /> Matige beperking (70-80 IQ) <br />
-<input type="radio" name="beperking" value="licht" /> Lichte beperking (50-70) <br />
-<input type="radio" name="beperking" value="zwaar" /> Zware beperking (< 50) <br />
+<input type="radio" name="beperking" value="geen" /> <span>Geen beperking</span><br />
+<input type="radio" name="beperking" value="matig" /> <span>Matige beperking(70 - 80 IQ)</span> <br />
+<input type="radio" name="beperking" value="licht" /> <span>Lichte beperking(50 - 70)</span> <br />
+<input type="radio" name="beperking" value="zwaar" /> <span>Zware beperking(< 50)</span> <br />
 
-<h3>Zijn er kinderen in het spel?</h3>
-<input type="radio" name="kinderen" value=6 /> Ja <br />
-<input type="radio" name="kinderen" value=0 /> Nee <br />
+<h3> Is er sprake van zorgmijding?</h3>
+<input type="radio" name="zorgmijding" value=3 /> <span>Ja</span> <br />
+<input type="radio" name="zorgmijding" value=0 /> <span>Nee</span> <br />
 
-<h3>Is er sprake van zorgmijding?</h3>
-<input type="radio" name="zorgmijding" value=4 /> Ja <br />
-<input type="radio" name="zorgmijding" value=0 /> Nee <br />
+@if (Model.Volwassene)
+{
+    <h3> Zijn er kinderen in het spel?</h3>
+    <input type="radio" name="kinderen" value=3 /> <span>Ja</span> <br />
+    <input type="radio" name="kinderen" value=0 /> <span>Nee</span> <br />
+}
 
 
 
-                                                      <form id="tab1">
-                                                          <h2>Ondersteuning bij lichamelijke verzorging</h2>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox1vraag1" value=3> <span class="label-text">ADL</span>
-                                                              </label>
-                                                          </div>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox2vraag1" value=1><span class="label-text">Hygiëne</span>
-                                                              </label>
-                                                          </div>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox3vraag1" value=4><span class="label-text">Voeding</span>
-                                                              </label>
-                                                          </div>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox4vraag1" value=2><span class="label-text">Kleding/zelfzorg</span>
-                                                              </label>
-                                                          </div>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox5vraag1" value=3><span class="label-text">Mobiliteit</span>
-                                                              </label>
-                                                          </div>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox6vraag1" value=1><span class="label-text">Goede nachtrust</span>
-                                                              </label>
-                                                          </div>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox7vraag1" value=5><span class="label-text">Ondersteuning bij epilepsie en diabeteszelfzorg</span>
-                                                              </label>
-                                                          </div>
-                                                          <div class="form-check">
-                                                              <label>
-                                                                  <input type="checkbox" name="checkbox8vraag1" value=8><span class="label-text">Verpleegtechnische handelingen</span>
-                                                              </label>
-                                                          </div>
-                                                      </form>
+<form id="tab1">
+    <h2>Ondersteuning bij lichamelijke verzorging</h2>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox1vraag1" value=3> <span class="label-text">ADL</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox2vraag1" value=1><span class="label-text">Hygiëne</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox3vraag1" value=4><span class="label-text">Voeding</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox4vraag1" value=2><span class="label-text">Kleding/zelfzorg</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox5vraag1" value=3><span class="label-text">Mobiliteit</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox6vraag1" value=1><span class="label-text">Goede nachtrust</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox7vraag1" value=1><span class="label-text">Ondersteuning bij epilepsie en diabeteszelfzorg</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox8vraag1" value=1><span class="label-text">Verpleegtechnische handelingen</span>
+        </label>
+    </div>
+</form>
 
 
 
@@ -113,43 +126,38 @@
     <h2>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h2>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag3" value=4><span class="label-text">dagbesteding</span>
+            <input type="checkbox" name="checkbox1vraag3" value=4><span class="label-text">Zinvolle dagbesteding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag3" value=4><span class="label-text">dagbesteding</span>
+            <input type="checkbox" name="checkbox2vraag3" value=2><span class="label-text">Vrijetijds besteding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox3vraag3" value=2><span class="label-text">Vrijetijds besteding</span>
+            <input type="checkbox" name="checkbox3vraag3" value=2><span class="label-text">Werk</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox4vraag3" value=2><span class="label-text">Werk</span>
+            <input type="checkbox" name="checkbox4vraag3" value=4><span class="label-text">Onderwijs</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox5vraag3" value=4><span class="label-text">Onderwijs</span>
+            <input type="checkbox" name="checkbox5vraag3" value=2><span class="label-text">Ontwikkelen van talent</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox6vraag3" value=2><span class="label-text">Ontwikkelen van talent</span>
-        </label>
-    </div>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox7vraag3" value=2><span class="label-text">Trainingen</span>
+            <input type="checkbox" name="checkbox6vraag3" value=2><span class="label-text">Trainingen</span>
         </label>
     </div>
 </form>
 
 <form id="tab4">
-    <h2>Ondersteuning bij maatschappelijk en huiselijke problematiek</h2>
+    <h2>Ondersteuning bij maatschappelijke en huiselijke problematiek</h2>
     <div class="form-check">
         <label>
             <input type="checkbox" name="checkbox1vraag4" value=9> <span class="label-text">Verwerking na gebeurtenissen</span>
@@ -232,10 +240,12 @@
 
 @section Scripts {
     <script type="text/javascript">
-        
+
+        var kinderen = false;
+
         $(":checkbox").on("click", function () {
             $.ajax({
-                url: "@Url.Action("AddToDomeinLocal", "Plus18")",
+                url: "@Url.Action("AddToDomeinLocal", "IndicatieVragen")",
                 data: {
                     _button: $(this).attr("name"),
                     _buttonChecked: $(this).is(":checked")
@@ -252,18 +262,19 @@
         });
 
         $("#calculateFirst").on("click", function () {
+            kinderen = @Json.Encode(Model.Volwassene);
             $.ajax({
-                url: "@Url.Action("AddToExtraLocal", "Plus18")",
+                url: "@Url.Action("AddToExtraLocal", "IndicatieVragen")",
                 data: {
                     _beperking: $('input[name=beperking]:checked').val(),
                     //_kinderenBool: $('input[name=kinderen]').is(":checked"),
-                    _kinderenPoints: $('input[name=kinderen]:checked').val(),
+                    _kinderenPoints: kinderen ? $('input[name=kinderen]:checked').val() : 0,
                     //_zorgmijdingBool: $('input[name=zorgmijding]').is(":checked"),
                     _zorgmijdingPoints: $('input[name=zorgmijding]:checked').val(),
                 },
                 method: "POST",
                 success: function (data) {
-                    var link = "@Url.Action("CalculateFirst", "Plus18")";
+                    var link = "@Url.Action("CalculateFirst", "IndicatieVragen")";
                     window.location.href = link;
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
