@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using MVCLeegProject.Models;
 using System.Linq;
+using System.Text;
+using Microsoft.AspNet.Identity;
 
 namespace MVCLeegProject.Controllers
 {
@@ -33,6 +35,26 @@ namespace MVCLeegProject.Controllers
             _LocalSaveModel _localSaveModel = new _LocalSaveModel
             {
                 Volwassene = LocalSaveModel.Volwassene
+            };
+
+            return View(_localSaveModel);
+        }
+        
+        public ActionResult TweedeDeelIndicatie()
+        {
+            _LocalSaveModel _localSaveModel = new _LocalSaveModel
+            {
+                DomeinBeschrijvingen1 = LocalSaveModel.DomeinBeschrijvingen1,
+                DomeinBeschrijvingen2 = LocalSaveModel.DomeinBeschrijvingen2,
+                DomeinBeschrijvingen3 = LocalSaveModel.DomeinBeschrijvingen3,
+                DomeinBeschrijvingen4 = LocalSaveModel.DomeinBeschrijvingen4,
+                DomeinBeschrijvingen5 = LocalSaveModel.DomeinBeschrijvingen5,
+                DomeinBeschrijvingen6 = LocalSaveModel.DomeinBeschrijvingen6,
+                Points = LocalSaveModel.Points,
+                MateBeperking = LocalSaveModel.MateBeperking,
+                Kinderen = LocalSaveModel.Kinderen,
+                Zorgmijding = LocalSaveModel.Zorgmijding,
+                EersteDeelIndicatie = LocalSaveModel.EersteDeelIndicatie
             };
 
             return View(_localSaveModel);
@@ -175,6 +197,158 @@ namespace MVCLeegProject.Controllers
             };
 
             return View("Eerste-deel-indicatie", _localSaveModel);
+        }
+
+        [HttpPost]
+        public ActionResult SaveConfirm(_LocalSaveModel model)
+        {
+            DB_A42A9B_Aveleijn2018Entities4 db = new DB_A42A9B_Aveleijn2018Entities4();
+
+
+
+            if (ModelState.IsValid)
+            {
+                Client client = new Client();
+
+                var thisClient = db.Clients.Where(c => c.clientnummer == model.Clientnummer);
+
+
+                if (!thisClient.Any())
+                {
+                    client.clientnummer = model.Clientnummer;
+                    client.voornaam = model.Voornaam;
+                    client.achternaam = model.Achternaam;
+                    client.geboortedatum = model.Geboortedatum;
+                    client.Behandelaar = User.Identity.GetUserId();
+
+                    db.Clients.Add(client);
+                }
+
+
+                Result result = new Result();
+
+                StringBuilder pickedBuilder = new StringBuilder();
+
+                foreach (var item in model.DomeinBeschrijvingen1)
+                {
+
+                    if (pickedBuilder.Length == 0)
+                    {
+                        pickedBuilder.Append(item);
+                    }
+                    else
+                    {
+                        pickedBuilder.Append("," + item);
+                    }
+
+
+                }
+
+                foreach (var item in model.DomeinBeschrijvingen2)
+                {
+
+                    if (pickedBuilder.Length == 0)
+                    {
+                        pickedBuilder.Append(item);
+                    }
+                    else
+                    {
+                        pickedBuilder.Append("," + item);
+                    }
+
+
+                }
+
+                foreach (var item in model.DomeinBeschrijvingen3)
+                {
+
+                    if (pickedBuilder.Length == 0)
+                    {
+                        pickedBuilder.Append(item);
+                    }
+                    else
+                    {
+                        pickedBuilder.Append("," + item);
+                    }
+
+
+                }
+
+                foreach (var item in model.DomeinBeschrijvingen4)
+                {
+
+                    if (pickedBuilder.Length == 0)
+                    {
+                        pickedBuilder.Append(item);
+                    }
+                    else
+                    {
+                        pickedBuilder.Append("," + item);
+                    }
+
+
+                }
+
+                foreach (var item in model.DomeinBeschrijvingen5)
+                {
+
+                    if (pickedBuilder.Length == 0)
+                    {
+                        pickedBuilder.Append(item);
+                    }
+                    else
+                    {
+                        pickedBuilder.Append("," + item);
+                    }
+
+
+                }
+
+                foreach (var item in model.DomeinBeschrijvingen6)
+                {
+
+                    if (pickedBuilder.Length == 0)
+                    {
+                        pickedBuilder.Append(item);
+                    }
+                    else
+                    {
+                        pickedBuilder.Append("," + item);
+                    }
+
+
+                }
+
+
+                result.pickedBoxes = pickedBuilder.ToString();
+                result.commentaar = model.Commentaar;
+
+
+                Formulier_tt formulier_tt = new Formulier_tt();
+
+                if (db.Formulier_tt.Any(r => r.Clientnummer == client.clientnummer))
+                {
+                    formulier_tt.result_id = result.result_id;
+                    formulier_tt.Clientnummer = client.clientnummer;
+                    formulier_tt.endTime = DateTime.UtcNow;
+                    formulier_tt.startTime = DateTime.UtcNow;
+                }
+                else
+                {
+                    formulier_tt.result_id = result.result_id;
+                    formulier_tt.Clientnummer = client.clientnummer;
+                    formulier_tt.startTime = DateTime.UtcNow;
+                }
+
+
+                db.Formulier_tt.Add(formulier_tt);
+
+                db.SaveChanges();
+
+
+
+            }
+            return View();
         }
 
         public ActionResult Plus18Check()
