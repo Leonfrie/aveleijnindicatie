@@ -27,21 +27,21 @@
 <ul class="w3-ul" style="margin-top: 50px; margin-bottom: 50px;">
     <li><b>Verplichte velden</b></li>
     <li>Mate van beperking: @Model.MateBeperking</li>
-    @if (@Model.Kinderen = false)
-    {
-        <li>Kinderen: Geen</li>
-    }
-    else
+    @if (@Model.Kinderen = true)
     {
         <li>Kinderen: Ja</li>
     }
-    @if (@Model.Zorgmijding = false)
+    else
     {
-        <li>Zorgmijding: Neen</li>
+        <li>Kinderen: Nee</li>
+    }
+    @if (@Model.Zorgmijding = true)
+    {
+        <li>Zorgmijding: Ja</li>
     }
     else
     {
-        <li>Zorgmijding: Ja</li>
+        <li>Zorgmijding: Neen</li>
     }
 
 
