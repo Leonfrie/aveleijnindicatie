@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using MVCLeegProject.Models;
-using System.Linq;
+
 
 namespace MVCLeegProject.Controllers
 {
@@ -24,6 +24,8 @@ namespace MVCLeegProject.Controllers
         public ActionResult AddToDomeinLocal(string _button, bool _buttonChecked)
         { 
             var checkBox = db.checkBoxMaps.Where(c => c.checkBox_id.Equals(_button)).First();
+
+            var category
 
             if(_buttonChecked)
             {
@@ -74,6 +76,7 @@ namespace MVCLeegProject.Controllers
             _LocalSaveModel _localSaveModel = new _LocalSaveModel
             {
                 DomeinBeschrijvingen = LocalSaveModel.DomeinBeschrijvingen,
+
                 Points = LocalSaveModel.Points,
                 MateBeperking = LocalSaveModel.MateBeperking,
                 Kinderen = LocalSaveModel.Kinderen,
@@ -82,6 +85,90 @@ namespace MVCLeegProject.Controllers
 
             return View("Eerste-deel-indicatie", _localSaveModel);
         }
+        // Save form info to database
+        // 
+        [HttpPost]
+        public ActionResult SaveConfirm(_LocalSaveModel model)
+        {
+            DB_A42A9B_Aveleijn2018Entities4 db = new DB_A42A9B_Aveleijn2018Entities4();
+
+            
+
+            if (ModelState.IsValid)
+            {
+                Client client = new Client();
+
+                var thisClient = db.Clients.Where(c => c.clientnummer == model.Clientnummer);
+
+
+                if(!thisClient.Any())
+                {
+                    client.clientnummer = model.Clientnummer;
+                    client.voornaam = model.Voornaam;
+                    client.achternaam = model.Achternaam;
+                    client.geboortedatum = model.Geboortedatum;
+                    client.Behandelaar = User.Identity.ToString();
+
+                    db.Clients.Add(client);
+                }
+                
+
+                Result result = new Result();
+
+                StringBuilder pickedBuilder = new StringBuilder();
+
+                foreach(var item in model.DomeinBeschrijvingen)
+                {
+
+                    if (pickedBuilder.Length == 0)
+                    {
+                        pickedBuilder.Append(item);
+                    }
+                    else
+                    {
+                        pickedBuilder.Append("," + item);
+                    }
+
+                    
+                }
+
+
+                result.pickedBoxes = pickedBuilder.ToString();
+                result.commentaar = model.Commentaar;
+
+
+                Formulier_tt formulier_tt = new Formulier_tt();
+
+                if(db.Formulier_tt.Any(r => r.Clientnummer == client.clientnummer))
+                {
+                    formulier_tt.result_id = result.result_id;
+                    formulier_tt.Clientnummer = client.clientnummer;
+                    formulier_tt.endTime = DateTime.UtcNow;
+                    formulier_tt.startTime = DateTime.UtcNow;
+                }
+                else
+                {
+                    formulier_tt.result_id = result.result_id;
+                    formulier_tt.Clientnummer = client.clientnummer;
+                    formulier_tt.startTime = DateTime.UtcNow;
+                }
+
+
+                db.Formulier_tt.Add(formulier_tt);
+
+                db.SaveChanges();
+
+
+                
+            }
+            
+            
+
+
+
+            return View();
+        }
+
 
         public ActionResult Plus18Send(ResultVM model)
         {

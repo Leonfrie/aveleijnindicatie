@@ -9,6 +9,7 @@ namespace MVCLeegProject.Models
     {
         public static int Points = 0;
         public static List<string> DomeinBeschrijvingen = new List<string>();
+        public static List<string> DomeinCategorie = new List<string>();
         public static string MateBeperking;
         public static bool Kinderen;
         public static bool Zorgmijding;
@@ -21,5 +22,10 @@ namespace MVCLeegProject.Models
         public string MateBeperking;
         public bool Kinderen;
         public bool Zorgmijding;
+        public string Voornaam;
+        public string Achternaam;
+        public DateTime Geboortedatum;
+        public string Clientnummer;
+        public string Commentaar;
     }
 }

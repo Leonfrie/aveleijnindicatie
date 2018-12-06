@@ -32,6 +32,10 @@ namespace MVCLeegProject.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<IndicatieBehoeften> IndicatieBehoeftens { get; set; }
         public virtual DbSet<IndicatieNiveau> IndicatieNiveaux { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Formulier_tt> Formulier_tt { get; set; }
+        public virtual DbSet<Result> Results { get; set; }
         public virtual DbSet<checkBoxMap> checkBoxMaps { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
     }
 }
