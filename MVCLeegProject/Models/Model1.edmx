@@ -66,6 +66,13 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="int" Nullable="false" />
+          <Property Name="CategoryString" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
         <EntityType Name="checkBoxMap">
           <Key>
             <PropertyRef Name="checkBox_id" />
@@ -73,6 +80,7 @@
           <Property Name="checkBox_id" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="beschrijving" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="value" Type="int" />
+          <Property Name="category_id" Type="int" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -82,6 +90,7 @@
           <Property Name="voornaam" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="achternaam" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="geboortedatum" Type="date" Nullable="false" />
+          <Property Name="Behandelaar" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="Formulier_tt">
           <Key>
@@ -122,7 +131,33 @@
           </Key>
           <Property Name="result_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="pickedBoxes" Type="nvarchar" MaxLength="1500" Nullable="false" />
+          <Property Name="commentaar" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Indication" Type="nvarchar" MaxLength="3" Nullable="false" />
         </EntityType>
+        <Association Name="AspNetUser_FK">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="Behandelaar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Category_FK">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="checkBoxMap" Type="Self.checkBoxMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="checkBoxMap">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Formulier__Clien__5165187F">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Formulier_tt" Type="Self.Formulier_tt" Multiplicity="*" />
@@ -210,12 +245,21 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="checkBoxMap" EntityType="Self.checkBoxMap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Formulier_tt" EntityType="Self.Formulier_tt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IndicatieBehoeften" EntityType="Self.IndicatieBehoeften" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IndicatieNiveau" EntityType="Self.IndicatieNiveau" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="AspNetUser_FK" Association="Self.AspNetUser_FK">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="Category_FK" Association="Self.Category_FK">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="checkBoxMap" EntitySet="checkBoxMap" />
+          </AssociationSet>
           <AssociationSet Name="FK__Formulier__Clien__5165187F" Association="Self.FK__Formulier__Clien__5165187F">
             <End Role="Client" EntitySet="Client" />
             <End Role="Formulier_tt" EntitySet="Formulier_tt" />
@@ -303,6 +347,7 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Clients" Relationship="DB_A42A9B_Aveleijn2018Model.AspNetUser_FK" FromRole="AspNetUser" ToRole="Client" />
         </EntityType>
         <EntityType Name="IndicatieBehoeften">
           <Key>
@@ -391,6 +436,15 @@
             <End Role="Result" EntitySet="Results" />
             <End Role="Formulier_tt" EntitySet="Formulier_tt" />
           </AssociationSet>
+          <EntitySet Name="Categories" EntityType="DB_A42A9B_Aveleijn2018Model.Category" />
+          <AssociationSet Name="AspNetUser_FK" Association="DB_A42A9B_Aveleijn2018Model.AspNetUser_FK">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="Category_FK" Association="DB_A42A9B_Aveleijn2018Model.Category_FK">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="checkBoxMap" EntitySet="checkBoxMaps" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="checkBoxMap">
           <Key>
@@ -399,6 +453,8 @@
           <Property Name="checkBox_id" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="beschrijving" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="value" Type="Int32" />
+          <Property Name="category_id" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="DB_A42A9B_Aveleijn2018Model.Category_FK" FromRole="checkBoxMap" ToRole="Category" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -409,6 +465,8 @@
           <Property Name="achternaam" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="geboortedatum" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Formulier_tt" Relationship="DB_A42A9B_Aveleijn2018Model.FK__Formulier__Clien__5165187F" FromRole="Client" ToRole="Formulier_tt" />
+          <Property Name="Behandelaar" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="DB_A42A9B_Aveleijn2018Model.AspNetUser_FK" FromRole="Client" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Formulier_tt">
           <Key>
@@ -429,6 +487,8 @@
           <Property Name="result_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="pickedBoxes" Type="String" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Formulier_tt" Relationship="DB_A42A9B_Aveleijn2018Model.FK__Formulier__resul__5070F446" FromRole="Result" ToRole="Formulier_tt" />
+          <Property Name="commentaar" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Indication" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Formulier__Clien__5165187F">
           <End Type="DB_A42A9B_Aveleijn2018Model.Client" Role="Client" Multiplicity="1" />
@@ -451,6 +511,38 @@
             </Principal>
             <Dependent Role="Formulier_tt">
               <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Int32" Nullable="false" />
+          <Property Name="CategoryString" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="checkBoxMaps" Relationship="DB_A42A9B_Aveleijn2018Model.Category_FK" FromRole="Category" ToRole="checkBoxMap" />
+        </EntityType>
+        <Association Name="AspNetUser_FK">
+          <End Type="DB_A42A9B_Aveleijn2018Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="DB_A42A9B_Aveleijn2018Model.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="Behandelaar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Category_FK">
+          <End Type="DB_A42A9B_Aveleijn2018Model.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="DB_A42A9B_Aveleijn2018Model.checkBoxMap" Role="checkBoxMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="checkBoxMap">
+              <PropertyRef Name="category_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -551,6 +643,7 @@
           <EntitySetMapping Name="checkBoxMaps">
             <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.checkBoxMap">
               <MappingFragment StoreEntitySet="checkBoxMap">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
                 <ScalarProperty Name="value" ColumnName="value" />
                 <ScalarProperty Name="beschrijving" ColumnName="beschrijving" />
                 <ScalarProperty Name="checkBox_id" ColumnName="checkBox_id" />
@@ -560,6 +653,7 @@
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Behandelaar" ColumnName="Behandelaar" />
                 <ScalarProperty Name="geboortedatum" ColumnName="geboortedatum" />
                 <ScalarProperty Name="achternaam" ColumnName="achternaam" />
                 <ScalarProperty Name="voornaam" ColumnName="voornaam" />
@@ -580,8 +674,18 @@
           <EntitySetMapping Name="Results">
             <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.Result">
               <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="Indication" ColumnName="Indication" />
+                <ScalarProperty Name="commentaar" ColumnName="commentaar" />
                 <ScalarProperty Name="pickedBoxes" ColumnName="pickedBoxes" />
                 <ScalarProperty Name="result_id" ColumnName="result_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryString" ColumnName="CategoryString" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
