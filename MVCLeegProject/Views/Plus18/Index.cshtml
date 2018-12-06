@@ -4,95 +4,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Mate van beperking</h3>
-<input type="radio" name="radiovraag11" value="geen" /> Geen beperking <br />
-<input type="radio" name="radiovraag12" value="matig" /> Matige beperking (70-80 IQ) <br />
-<input type="radio" name="radiovraag13" value="licht" /> Lichte beperking (50-70) <br />
-<input type="radio" name="radiovraag14" value="zwaar" /> Zware beperking (< 50) <br />
+<h3>Mate van beperking:</h3>
+<input type="radio" name="beperking" value="geen" /> Geen beperking <br />
+<input type="radio" name="beperking" value="matig" /> Matige beperking (70-80 IQ) <br />
+<input type="radio" name="beperking" value="licht" /> Lichte beperking (50-70) <br />
+<input type="radio" name="beperking" value="zwaar" /> Zware beperking (< 50) <br />
 
-<form id="matevanbeperking">
-    <h2>Mate van beperking</h2>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox1vraag6" value="geen" onchange='countPoints()'> <span class="label-text">Geen beperking</span>
-        </label>
-    </div>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox2vraag6" value="matig" onchange='countPoints()'><span class="label-text">Matige beperking (70-80 IQ)</span>
-        </label>
-    </div>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox2vraag6" value="licht" onchange='countPoints()'><span class="label-text">Lichte beperking (50-70)</span>
-        </label>
-    </div>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox2vraag6" value="zwaar" onchange='countPoints()'><span class="label-text">Zware beperking (< 50)</span>
-        </label>
-    </div>
-</form>
+<h3>Zijn er kinderen in het spel?</h3>
+<input type="radio" name="kinderen" value=6 /> Ja <br />
+<input type="radio" name="kinderen" value=0 /> Nee <br />
 
-<form id="kinderen">
-    <h2>Zijn er kinderen in het spel?</h2>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox1vraag6" value=1 onchange='countPoints()'> <span class="label-text">Ja</span>
-        </label>
-    </div>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox2vraag6" value=0 onchange='countPoints()'><span class="label-text">Nee</span>
-        </label>
-    </div>
-</form>
+<h3>Is er sprake van zorgmijding?</h3>
+<input type="radio" name="zorgmijding" value=4 /> Ja <br />
+<input type="radio" name="zorgmijding" value=0 /> Nee <br />
 
-<form id="zorgmeiding">
-    <h2>Is er sprake van zorgmijding?</h2>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox1vraag6" value=1 onchange='countPoints()'> <span class="label-text">Ja</span>
-        </label>
-    </div>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox2vraag6" value=0 onchange='countPoints()'><span class="label-text">Nee</span>
-        </label>
-    </div>
-</form>
 
 
 <form id="tab1">
     <h2>Ondersteuning bij lichamelijke verzorging</h2>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag6" value=3 onchange='countPoints()'> <span class="label-text">ADL</span>
+            <input type="checkbox" name="checkbox1vraag1" value=3> <span class="label-text">ADL</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=1 onchange='countPoints()'><span class="label-text">Hygiëne</span>
+            <input type="checkbox" name="checkbox2vraag1" value=1><span class="label-text">Hygiëne</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=4 onchange='countPoints()'><span class="label-text">Voeding</span>
+            <input type="checkbox" name="checkbox3vraag1" value=4><span class="label-text">Voeding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Kleding/zelfzorg</span>
+            <input type="checkbox" name="checkbox4vraag1" value=2><span class="label-text">Kleding/zelfzorg</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=3 onchange='countPoints()'><span class="label-text">Mobiliteit</span>
+            <input type="checkbox" name="checkbox5vraag1" value=3><span class="label-text">Mobiliteit</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=1 onchange='countPoints()'><span class="label-text">Goede nachtrust</span>
+            <input type="checkbox" name="checkbox6vraag1" value=1><span class="label-text">Goede nachtrust</span>
         </label>
     </div>
 </form>
@@ -105,37 +62,37 @@
     <h2>Ondersteuning bij psychisch welbevinden</h2>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag6" value=9 onchange='countPoints()'> <span class="label-text">Diagnostisch onderzoek</span>
+            <input type="checkbox" name="checkbox1vraag2" value=9> <span class="label-text">Diagnostisch onderzoek</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=7 onchange='countPoints()'><span class="label-text">Rouwverwerking<n</span>
+            <input type="checkbox" name="checkbox2vraag2" value=7><span class="label-text">Rouwverwerking</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=6 onchange='countPoints()'><span class="label-text">Depresssie</span>
+            <input type="checkbox" name="checkbox3vraag2" value=6><span class="label-text">Depresssie</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Traumaverwerking</span>
+            <input type="checkbox" name="checkbox4vraag2" value=9><span class="label-text">Traumaverwerking</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Angst-, stress-, gedragsstoornissen</span>
+            <input type="checkbox" name="checkbox5vraag2" value=9><span class="label-text">Angst-, stress-, gedragsstoornissen</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=6 onchange='countPoints()'><span class="label-text">Dementie</span>
+            <input type="checkbox" name="checkbox6vraag2" value=6><span class="label-text">Dementie</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Verslaving</span>
+            <input type="checkbox" name="checkbox7vraag2" value=9><span class="label-text">Verslaving</span>
         </label>
     </div>
 </form>
@@ -146,37 +103,37 @@
     <h2>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h2>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag6" value=4 onchange='countPoints()'><span class="label-text">dagbesteding</span>
+            <input type="checkbox" name="checkbox1vraag3" value=4><span class="label-text">dagbesteding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag6" value=4 onchange='countPoints()'><span class="label-text">dagbesteding</span>
+            <input type="checkbox" name="checkbox2vraag3" value=4><span class="label-text">dagbesteding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Vrijetijds besteding</span>
+            <input type="checkbox" name="checkbox3vraag3" value=2><span class="label-text">Vrijetijds besteding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Werk</span>
+            <input type="checkbox" name="checkbox4vraag3" value=2><span class="label-text">Werk</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=4 onchange='countPoints()'><span class="label-text">Onderwijs</span>
+            <input type="checkbox" name="checkbox5vraag3" value=4><span class="label-text">Onderwijs</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Ontwikkelen van talent</span>
+            <input type="checkbox" name="checkbox6vraag3" value=2><span class="label-text">Ontwikkelen van talent</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Trainingen</span>
+            <input type="checkbox" name="checkbox7vraag3" value=2><span class="label-text">Trainingen</span>
         </label>
     </div>
 </form>
@@ -185,22 +142,22 @@
     <h2>Ondersteuning bij maatschappelijk en huiselijke problematiek</h2>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag6" value=9 onchange='countPoints()'> <span class="label-text">Verwerking na gebeurtenissen</span>
+            <input type="checkbox" name="checkbox1vraag4" value=9> <span class="label-text">Verwerking na gebeurtenissen</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Seksueel misbruik<n</span>
+            <input type="checkbox" name="checkbox2vraag4" value=9><span class="label-text">Seksueel misbruik<n</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Huiselijk geweld en aggressie</span>
+            <input type="checkbox" name="checkbox3vraag4" value=9><span class="label-text">Huiselijk geweld en aggressie</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=9 onchange='countPoints()'><span class="label-text">Verslaving en overlast</span>
+            <input type="checkbox" name="checkbox4vraag4" value=9><span class="label-text">Verslaving en overlast</span>
         </label>
     </div>
 </form>
@@ -210,17 +167,17 @@
     <div class="form-check">
         <label>
 
-            <input type="checkbox" name="checkbox1vraag6" value=3 onchange='countPoints()'> <span class="label-text">Ondersteuning bij huisvesting, huishouden en financiën</span>
+            <input type="checkbox" name="checkbox1vraag5" value=3> <span class="label-text">Ondersteuning bij huisvesting, huishouden en financiën</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Begeleiding huishouden</span>
+            <input type="checkbox" name="checkbox2vraag5" value=2><span class="label-text">Begeleiding huishouden</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Ondersteuning administratie en financiën</span>
+            <input type="checkbox" name="checkbox3vraag5" value=2><span class="label-text">Ondersteuning administratie en financiën</span>
         </label>
     </div>
 </form>
@@ -230,43 +187,84 @@
     <h2>Ondersteunen bij netwerk en relaties</h2>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag6" value=2 onchange='countPoints()'> <span class="label-text">Sociale vaardigheden</span>
+            <input type="checkbox" name="checkbox1vraag6" value=2> <span class="label-text">Sociale vaardigheden</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Assertiviteit</span>
+            <input type="checkbox" name="checkbox2vraag6" value=2><span class="label-text">Assertiviteit</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Contacten met o.a. familie/vrienden</span>
+            <input type="checkbox" name="checkbox3vraag6" value=2><span class="label-text">Contacten met o.a. familie/vrienden</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=5 onchange='countPoints()'><span class="label-text">Relatie</span>
+            <input type="checkbox" name="checkbox4vraag6" value=5><span class="label-text">Relatie</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=5 onchange='countPoints()'><span class="label-text">Seksualiteit en intimiteit</span>
+            <input type="checkbox" name="checkbox5vraag6" value=5><span class="label-text">Seksualiteit en intimiteit</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag6" value=2 onchange='countPoints()'><span class="label-text">Sociale bezigheden en activiteiten</span>
+            <input type="checkbox" name="checkbox6vraag6" value=2><span class="label-text">Sociale bezigheden en activiteiten</span>
         </label>
     </div>
 
 </form>
 
-<p id="total">totaal hier</p>
+<button id="calculateFirst" class="w3-button a-blue">Bereken eerste deel indicatie &raquo;</button>
 
 @section Scripts {
     <script type="text/javascript">
+        
+        $(":checkbox").on("click", function () {
+            $.ajax({
+                url: "@Url.Action("AddToDomeinLocal", "Plus18")",
+                data: {
+                    _button: $(this).attr("name"),
+                    _buttonChecked: $(this).is(":checked")
+                },
+                method: "POST",
+                success: function (data) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 404) {
+                        return;
+                    }
+                }
+            });
+        });
 
-       $(document).ready(function () {
+        $("#calculateFirst").on("click", function () {
+            $.ajax({
+                url: "@Url.Action("AddToExtraLocal", "Plus18")",
+                data: {
+                    _beperking: $('input[name=beperking]:checked').val(),
+                    //_kinderenBool: $('input[name=kinderen]').is(":checked"),
+                    _kinderenPoints: $('input[name=kinderen]:checked').val(),
+                    //_zorgmijdingBool: $('input[name=zorgmijding]').is(":checked"),
+                    _zorgmijdingPoints: $('input[name=zorgmijding]:checked').val(),
+                },
+                method: "POST",
+                success: function (data) {
+                    var link = "@Url.Action("CalculateFirst", "Plus18")";
+                    window.location.href = link;
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 404) {
+                        return;
+                    }
+                }
+            });
+        });
+
+       @*$(document).ready(function () {
         $('#submitBtn').on("click", function () {
             var list = [];
             $('input:checkbox:checked').each(function () { // iterate through each checked element.
@@ -286,25 +284,7 @@
                 traditional: true
             });
         });
-    });
-
-    function countPoints() {
-        var total = 0;
-
-        $('input:checkbox').change(function () {
-
-            $('input:checkbox:checked').each(function () { // iterate through each checked element.
-                total += isNaN(parseInt($(this).val())) ? 0 : parseInt($(this).val());
-            });
-            $("#total").text(total);
-        });
-
-
-
-
-    };
-
-
+    });*@
 
     </script>
 }

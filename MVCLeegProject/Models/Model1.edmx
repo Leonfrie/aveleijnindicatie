@@ -318,16 +318,8 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <EntitySet Name="indicatieVragens" EntityType="DB_A42A9B_Aveleijn2018Model.indicatieVragen" />
           <EntitySet Name="checkBoxMaps" EntityType="DB_A42A9B_Aveleijn2018Model.checkBoxMap" />
         </EntityContainer>
-        <EntityType Name="indicatieVragen">
-          <Key>
-            <PropertyRef Name="indicatieV_id" />
-          </Key>
-          <Property Name="indicatieV_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="vraag" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="checkBoxMap">
           <Key>
             <PropertyRef Name="checkBox_id" />
