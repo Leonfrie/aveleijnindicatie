@@ -331,6 +331,7 @@
     <Content Include="Views\Home\categories.cshtml" />
     <Content Include="Views\Plus18\Index.cshtml" />
     <Content Include="Views\Plus18\Eerste-deel-indicatie.cshtml" />
+    <Content Include="Views\Home\doelen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

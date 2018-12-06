@@ -13,140 +13,190 @@
 </head>
 <body>
     <div>
-        <!-- Sidebar/menu -->
-        <nav class="w3-sidebar kleurtekst w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
-            <br>
-            <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-            <div class="w3-container">
-                <img style="width: 95%;height: 95%;" src="~/Content/img/tzmlogo.png" />
+
+
+
+
+        <style>
+            body, h1, h2, h3, h4, h5 {
+                font-family: "Poppins", sans-serif
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .w3-half img {
+                margin-bottom: -6px;
+                margin-top: 16px;
+                opacity: 0.8;
+                cursor: pointer
+            }
+
+                .w3-half img:hover {
+                    opacity: 1
+                }
+
+                .jumbotron{
+                    padding-left: 50px;
+                }
+        </style>
+        <body>
+
+            <!-- Sidebar/menu -->
+            <nav class="w3-sidebar kleurtekst w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+                <br>
+                <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+                <div class="w3-container">
+                    <img style="width: 95%;height: 95%;" src="~/Content/img/tzmlogo.png" />
+                </div>
+                <div class="w3-bar-block">
+                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button w3-hover-white kleurtekst" })
+                    @Html.ActionLink("Doelen", "Doelen", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button w3-hover-white kleurtekst" })
+
+                    <br />
+                    <br />
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </nav>
+
+            <!-- Top menu on small screens -->
+            <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+                <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+                <span>Company Name</span>
+            </header>
+
+            <!-- Overlay effect when opening sidebar on small screens -->
+            <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+            <!-- !PAGE CONTENT! -->
+            <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div>  @RenderBody()</div>
+
+
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - CSE week Twente </p>
+                </footer>
             </div>
-            <div class="w3-bar-block kleurtekst">
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "w3-bar-item w3-button w3-hover-white kleurtekst" })
 
-                <br />
-                <br />
-                @Html.Partial("_LoginPartial")
-            </div>
-        </nav>
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @Scripts.Render("~/bundles/ajax")
+            @RenderSection("scripts", required: false)
+        </body>
+        <style>
+            .kleurtekst {
+                color: #006070;
+                background-color: #ea675b;
+            }
 
-        <!-- Top menu on small screens -->
-        <header class="w3-container kleurtekst w3-top w3-hide-large w3-xlarge w3-padding">
-            <a href="javascript:void(0)" class="w3-button kleurtekst w3-margin-right" onclick="w3_open()">☰</a>
-            <span>Company Name</span>
-        </header>
+            .jumbotron {
+                background-color: #ea675b;
+                color: #006070;
+            }
 
-        <!-- Overlay effect when opening sidebar on small screens -->
-        <div class="w3-overlay w3-hide-large kleurtekst" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+            h1 + h2 + h3 + h4 + h5 + h6 + h7 {
+                color: #006070;
+            }
 
+            .a-yellow {
+                background-color: #facd02;
+            }
 
-        <div class="container">  @RenderBody()</div>
-    
+            .a-blue {
+                background-color: #006070;
+                color: white;
+            }
 
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - CSE week Twente </p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/ajax")
-    @RenderSection("scripts", required: false)
-</body>
-<style>
-    .kleurtekst {
-        color: #006070;
-        background-color: #ea675b;
-    }
-
-    .jumbotron {
-        background-color: #ea675b;
-        color: #006070;
-    }
-
-    h1 + h2 + h3 + h4 + h5 + h6 + h7 {
-        color: #006070;
-    }
-
-    .a-yellow {
-        background-color: #facd02;
-    }
-
-    .a-blue {
-        background-color: #006070;
-        color: white;
-    }
-
-    .w3-button:hover {
-        background-color: #23B9D7;
-        color: green;
-    }
-    
+            .w3-button:hover {
+                background-color: #23B9D7;
+                color: green;
+            }
 
 
 
-label{
-	position: relative;
-	cursor: pointer;
-	color: #666;
-	font-size: 16px;
-}
 
-input[type="checkbox"] {
-	position: absolute;
-	right: 9000px;
-}
+            label {
+                position: relative;
+                cursor: pointer;
+                color: #666;
+                font-size: 16px;
+            }
 
-/*Check box*/
-input[type="checkbox"] + .label-text:before{
-	content: "\f096";
-	font-family: "FontAwesome";
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing:antialiased;
-	width: 1em;
-	display: inline-block;
-	margin-right: 5px;
-}
+            input[type="checkbox"] {
+                position: absolute;
+                right: 9000px;
+            }
 
-    input[type="checkbox"]:checked + .label-text:before {
-        content: "\f14a";
-        color: #006070;
-        animation: effect 250ms ease-in;
-    }
+                /*Check box*/
+                input[type="checkbox"] + .label-text:before {
+                    content: "\f096";
+                    font-family: "FontAwesome";
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    width: 1em;
+                    display: inline-block;
+                    margin-right: 5px;
+                }
 
-input[type="checkbox"]:disabled + .label-text{
-	color: #aaa;
-}
+                input[type="checkbox"]:checked + .label-text:before {
+                    content: "\f14a";
+                    color: #006070;
+                    animation: effect 250ms ease-in;
+                }
 
-input[type="checkbox"]:disabled + .label-text:before{
-	content: "\f0c8";
-	color: #ccc;
-}
+                input[type="checkbox"]:disabled + .label-text {
+                    color: #aaa;
+                }
 
-form{
-    margin-top: 50px;
-}
+                    input[type="checkbox"]:disabled + .label-text:before {
+                        content: "\f0c8";
+                        color: #ccc;
+                    }
 
+            form {
+                margin-top: 50px;
+            }
+        </style>
 
-</style>
+        <script>
+            // Script to open and close sidebar
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+            }
 
-<script>
-    // Script to open and close sidebar
-    function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-    }
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("myOverlay").style.display = "none";
+            }
 
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
-    }
-
-    </script>
+        </script>
 
 </html >
