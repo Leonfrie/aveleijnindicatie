@@ -16,6 +16,11 @@
         <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DB_A42A9B_Aveleijn2018Model.checkBoxMap" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_A42A9B_Aveleijn2018Model.Client" Width="1.5" PointX="7.375" PointY="10" />
+        <EntityTypeShape EntityType="DB_A42A9B_Aveleijn2018Model.Formulier_tt" Width="1.5" PointX="9.625" PointY="6.875" />
+        <EntityTypeShape EntityType="DB_A42A9B_Aveleijn2018Model.Result" Width="1.5" PointX="7.375" PointY="7.25" />
+        <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.FK__Formulier__Clien__5165187F" />
+        <AssociationConnector Association="DB_A42A9B_Aveleijn2018Model.FK__Formulier__resul__5070F446" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

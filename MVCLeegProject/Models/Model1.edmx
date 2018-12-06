@@ -74,6 +74,25 @@
           <Property Name="beschrijving" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="value" Type="int" />
         </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="clientnummer" />
+          </Key>
+          <Property Name="clientnummer" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="voornaam" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="achternaam" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="geboortedatum" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Formulier_tt">
+          <Key>
+            <PropertyRef Name="result_id" />
+            <PropertyRef Name="Clientnummer" />
+          </Key>
+          <Property Name="result_id" Type="int" Nullable="false" />
+          <Property Name="Clientnummer" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="startTime" Type="datetime" Nullable="false" />
+          <Property Name="endTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="IndicatieBehoeften">
           <Key>
             <PropertyRef Name="indicatieB_id" />
@@ -97,6 +116,37 @@
           <Property Name="ondersteuning" Type="nvarchar" MaxLength="2000" />
           <Property Name="veranderingen" Type="nvarchar" MaxLength="2000" />
         </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="result_id" />
+          </Key>
+          <Property Name="result_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pickedBoxes" Type="nvarchar" MaxLength="1500" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Formulier__Clien__5165187F">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Formulier_tt" Type="Self.Formulier_tt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="clientnummer" />
+            </Principal>
+            <Dependent Role="Formulier_tt">
+              <PropertyRef Name="Clientnummer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Formulier__resul__5070F446">
+          <End Role="Result" Type="Self.Result" Multiplicity="1" />
+          <End Role="Formulier_tt" Type="Self.Formulier_tt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Result">
+              <PropertyRef Name="result_id" />
+            </Principal>
+            <Dependent Role="Formulier_tt">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -161,8 +211,19 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="checkBoxMap" EntityType="Self.checkBoxMap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formulier_tt" EntityType="Self.Formulier_tt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IndicatieBehoeften" EntityType="Self.IndicatieBehoeften" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IndicatieNiveau" EntityType="Self.IndicatieNiveau" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Formulier__Clien__5165187F" Association="Self.FK__Formulier__Clien__5165187F">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Formulier_tt" EntitySet="Formulier_tt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Formulier__resul__5070F446" Association="Self.FK__Formulier__resul__5070F446">
+            <End Role="Result" EntitySet="Result" />
+            <End Role="Formulier_tt" EntitySet="Formulier_tt" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -319,6 +380,17 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="checkBoxMaps" EntityType="DB_A42A9B_Aveleijn2018Model.checkBoxMap" />
+          <EntitySet Name="Clients" EntityType="DB_A42A9B_Aveleijn2018Model.Client" />
+          <EntitySet Name="Formulier_tt" EntityType="DB_A42A9B_Aveleijn2018Model.Formulier_tt" />
+          <EntitySet Name="Results" EntityType="DB_A42A9B_Aveleijn2018Model.Result" />
+          <AssociationSet Name="FK__Formulier__Clien__5165187F" Association="DB_A42A9B_Aveleijn2018Model.FK__Formulier__Clien__5165187F">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Formulier_tt" EntitySet="Formulier_tt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Formulier__resul__5070F446" Association="DB_A42A9B_Aveleijn2018Model.FK__Formulier__resul__5070F446">
+            <End Role="Result" EntitySet="Results" />
+            <End Role="Formulier_tt" EntitySet="Formulier_tt" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="checkBoxMap">
           <Key>
@@ -328,6 +400,60 @@
           <Property Name="beschrijving" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="value" Type="Int32" />
         </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="clientnummer" />
+          </Key>
+          <Property Name="clientnummer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="voornaam" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="achternaam" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="geboortedatum" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Formulier_tt" Relationship="DB_A42A9B_Aveleijn2018Model.FK__Formulier__Clien__5165187F" FromRole="Client" ToRole="Formulier_tt" />
+        </EntityType>
+        <EntityType Name="Formulier_tt">
+          <Key>
+            <PropertyRef Name="result_id" />
+            <PropertyRef Name="Clientnummer" />
+          </Key>
+          <Property Name="result_id" Type="Int32" Nullable="false" />
+          <Property Name="Clientnummer" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="endTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Client" Relationship="DB_A42A9B_Aveleijn2018Model.FK__Formulier__Clien__5165187F" FromRole="Formulier_tt" ToRole="Client" />
+          <NavigationProperty Name="Result" Relationship="DB_A42A9B_Aveleijn2018Model.FK__Formulier__resul__5070F446" FromRole="Formulier_tt" ToRole="Result" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="result_id" />
+          </Key>
+          <Property Name="result_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pickedBoxes" Type="String" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Formulier_tt" Relationship="DB_A42A9B_Aveleijn2018Model.FK__Formulier__resul__5070F446" FromRole="Result" ToRole="Formulier_tt" />
+        </EntityType>
+        <Association Name="FK__Formulier__Clien__5165187F">
+          <End Type="DB_A42A9B_Aveleijn2018Model.Client" Role="Client" Multiplicity="1" />
+          <End Type="DB_A42A9B_Aveleijn2018Model.Formulier_tt" Role="Formulier_tt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="clientnummer" />
+            </Principal>
+            <Dependent Role="Formulier_tt">
+              <PropertyRef Name="Clientnummer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Formulier__resul__5070F446">
+          <End Type="DB_A42A9B_Aveleijn2018Model.Result" Role="Result" Multiplicity="1" />
+          <End Type="DB_A42A9B_Aveleijn2018Model.Formulier_tt" Role="Formulier_tt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Result">
+              <PropertyRef Name="result_id" />
+            </Principal>
+            <Dependent Role="Formulier_tt">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -428,6 +554,34 @@
                 <ScalarProperty Name="value" ColumnName="value" />
                 <ScalarProperty Name="beschrijving" ColumnName="beschrijving" />
                 <ScalarProperty Name="checkBox_id" ColumnName="checkBox_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="geboortedatum" ColumnName="geboortedatum" />
+                <ScalarProperty Name="achternaam" ColumnName="achternaam" />
+                <ScalarProperty Name="voornaam" ColumnName="voornaam" />
+                <ScalarProperty Name="clientnummer" ColumnName="clientnummer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formulier_tt">
+            <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.Formulier_tt">
+              <MappingFragment StoreEntitySet="Formulier_tt">
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="Clientnummer" ColumnName="Clientnummer" />
+                <ScalarProperty Name="result_id" ColumnName="result_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="DB_A42A9B_Aveleijn2018Model.Result">
+              <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="pickedBoxes" ColumnName="pickedBoxes" />
+                <ScalarProperty Name="result_id" ColumnName="result_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
