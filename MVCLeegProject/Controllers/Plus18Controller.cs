@@ -25,7 +25,7 @@ namespace MVCLeegProject.Controllers
         { 
             var checkBox = db.checkBoxMaps.Where(c => c.checkBox_id.Equals(_button)).First();
 
-            var category
+            //var category
 
             if(_buttonChecked)
             {
