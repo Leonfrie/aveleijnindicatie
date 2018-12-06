@@ -1,35 +1,40 @@
-﻿
+﻿@model MVCLeegProject.Models._LocalSaveModel
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Model.Volwassene)
+{
+    <h2>Volwassene</h2>
+}
+else
+{
+    <h2>Jeugd</h2>
+}
+
 <h3>Mate van beperking:</h3>
-<input type="radio" name="beperking" value="geen" /> Geen beperking <br />
-<input type="radio" name="beperking" value="matig" /> Matige beperking (70-80 IQ) <br />
-<input type="radio" name="beperking" value="licht" /> Lichte beperking (50-70 IQ) <br />
-<input type="radio" name="beperking" value="zwaar" /> Zware beperking (< 50 IQ) <br />
+<input type="radio" name="beperking" value="geen" /> <span>Geen beperking</span><br />
+<input type="radio" name="beperking" value="matig" /> <span>Matige beperking(70 - 80 IQ)</span> <br />
+<input type="radio" name="beperking" value="licht" /> <span>Lichte beperking(50 - 70)</span> <br />
+<input type="radio" name="beperking" value="zwaar" /> <span>Zware beperking(< 50)</span> <br />
 
-<h3>Zijn er kinderen in het spel?</h3>
-<input type="radio" name="kinderen" value=6 /> Ja <br />
-<input type="radio" name="kinderen" value=0 /> Nee <br />
+<h3> Is er sprake van zorgmijding?</h3>
+<input type="radio" name="zorgmijding" value=3 /> <span>Ja</span> <br />
+<input type="radio" name="zorgmijding" value=0 /> <span>Nee</span> <br />
 
-<h3>Is er sprake van zorgmijding?</h3>
-<input type="radio" name="zorgmijding" value=4 /> Ja <br />
-<input type="radio" name="zorgmijding" value=0 /> Nee <br />
+@if (Model.Volwassene)
+{
+    <h3> Zijn er kinderen in het spel?</h3>
+    <input type="radio" name="kinderen" value=3 /> <span>Ja</span> <br />
+    <input type="radio" name="kinderen" value=0 /> <span>Nee</span> <br />
+}
 
 
 
 <form id="tab1">
-    <h2>
-        Ondersteuning bij lichamelijke verzorging <button type="button" class="btn fa fa-info"  data-toggle="collapse" data-target="#domein1"></button>
-    </h2>
-    <div id="domein1" class="collapse" style="font-size: 16px; margin-top: 15px; margin-bottom: 15px;" >
-        Lichamelijke gezondheid en zelfverzorging betreffen het uitvoeren van lichamelijke en dagelijkse routine-activiteiten, 
-        zoals lopen, eten, aan- en uitkleden. Veel mensen met een verstandelijke beperking hebben naast hun verstandelijke 
-        beperking een medische aandoening. Vooral naarmate ze ouder worden, zal het lichamelijk functioneren meer aandacht behoeven. 
-        Aveleijn biedt ondersteuning bij een gezond leven.
-    </div>
+    <h2>Ondersteuning bij lichamelijke verzorging</h2>
     <div class="form-check">
         <label>
             <input type="checkbox" name="checkbox1vraag1" value=3> <span class="label-text">ADL</span>
@@ -60,6 +65,16 @@
             <input type="checkbox" name="checkbox6vraag1" value=1><span class="label-text">Goede nachtrust</span>
         </label>
     </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox7vraag1" value=1><span class="label-text">Ondersteuning bij epilepsie en diabeteszelfzorg</span>
+        </label>
+    </div>
+    <div class="form-check">
+        <label>
+            <input type="checkbox" name="checkbox8vraag1" value=1><span class="label-text">Verpleegtechnische handelingen</span>
+        </label>
+    </div>
 </form>
 
 
@@ -67,15 +82,7 @@
 
 
 <form id="tab2">
-    <h2>Ondersteuning bij psychisch welbevinden <button type="button" class="btn fa fa-info" ; font-size: 16px;;" data-toggle="collapse" data-target="#domein2"></button></h2>
-    <div id="domein2" class="collapse" style="font-size: 16px; margin-top: 15px; margin-bottom: 15px;" >
-        Hoe kunnen we ervoor zorgen dat mensen een positief zelfbeeld hebben en tevreden zijn? 
-        Aveleijn ondersteunt mensen en hun omgeving bij hun emotioneel welbevinden en biedt begeleiding, 
-        therapie en behandeling voor mensen met psychosociale en/of psychiatrische problemen. 
-        Het gaat dan bijvoorbeeld over wat het betekent als iemand een verstandelijke beperking heeft, 
-        begeleiding bij het levenseinde van mensen, en diagnostisch onderzoek.
-    </div>
-    
+    <h2>Ondersteuning bij psychisch welbevinden</h2>
     <div class="form-check">
         <label>
             <input type="checkbox" name="checkbox1vraag2" value=9> <span class="label-text">Diagnostisch onderzoek</span>
@@ -116,61 +123,41 @@
 
 
 <form id="tab3">
-    <h2>Ondersteuning bij zelfredzaamheid en zelfstandigheid <button type="button" class="btn fa fa-info" ; font-size: 16px;;" data-toggle="collapse" data-target="#domein3"></button></h2>
-    <div id="domein3" class="collapse" style="font-size: 16px; margin-top: 15px; margin-bottom: 15px;">
-        De WMO streeft naar sociale inclusie en participatie, ook wanneer mensen een beperking hebben. 
-        Ondersteuning door Aveleijn is helemaal gericht op het meedoen in de maatschappij. Denk aan zelfstandig reizen, 
-        boodschappen doen, contacten met de juiste instanties, huisartsbezoek en het vinden van activiteiten om de vrije tijd in te vullen. 
-        We leren mensen de vaardigheden, motiveren ze om actie te ondernemen en soms gaan we mee om ter plekke te ondersteunen.
-    </div>
+    <h2>Ondersteuning bij zelfredzaamheid en zelfstandigheid</h2>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox1vraag3" value=4><span class="label-text">dagbesteding</span>
+            <input type="checkbox" name="checkbox1vraag3" value=4><span class="label-text">Zinvolle dagbesteding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox2vraag3" value=4><span class="label-text">dagbesteding</span>
+            <input type="checkbox" name="checkbox2vraag3" value=2><span class="label-text">Vrijetijds besteding</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox3vraag3" value=2><span class="label-text">Vrijetijds besteding</span>
+            <input type="checkbox" name="checkbox3vraag3" value=2><span class="label-text">Werk</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox4vraag3" value=2><span class="label-text">Werk</span>
+            <input type="checkbox" name="checkbox4vraag3" value=4><span class="label-text">Onderwijs</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox5vraag3" value=4><span class="label-text">Onderwijs</span>
+            <input type="checkbox" name="checkbox5vraag3" value=2><span class="label-text">Ontwikkelen van talent</span>
         </label>
     </div>
     <div class="form-check">
         <label>
-            <input type="checkbox" name="checkbox6vraag3" value=2><span class="label-text">Ontwikkelen van talent</span>
-        </label>
-    </div>
-    <div class="form-check">
-        <label>
-            <input type="checkbox" name="checkbox7vraag3" value=2><span class="label-text">Trainingen</span>
+            <input type="checkbox" name="checkbox6vraag3" value=2><span class="label-text">Trainingen</span>
         </label>
     </div>
 </form>
 
 <form id="tab4">
-    <h2>Ondersteuning bij maatschappelijke en huiselijke problematiek <button type="button" class="btn fa fa-info" ; font-size: 16px;;" data-toggle="collapse" data-target="#domein4"></button></h2>
-    <div id="domein4" class="collapse" style="font-size: 16px; margin-top: 15px; margin-bottom: 15px;" >
-        Mee kunnen doen in de maatschappij is een belangrijk domein van kwaliteit van bestaan. Dit heeft alles te maken met maatschappelijke aanpassing en sociale inclusie. 
-        Aveleijn ondersteunt hierbij door geen norm op te leggen aan mensen, maar cliënten te begeleiden in bijvoorbeeld een goede persoonlijke verzorging, 
-        het beperken van overlast en bemiddeling bij overlast met buren.
-        Ook veiligheid is een specifiek onderdeel dat bijdraagt aan het emotioneel welbevinden van mensen. 
-        Aveleijn kan dit ondersteunen door met een risicoscan de veiligheidsrisico’s rondom een persoon in kaart te brengen, 
-        om vervolgens daarop gerichte begeleiding te bieden. Denk aan fysieke risico’s als brandgevaar en agressie.
-
-    </div>
+    <h2>Ondersteuning bij maatschappelijke en huiselijke problematiek</h2>
     <div class="form-check">
         <label>
             <input type="checkbox" name="checkbox1vraag4" value=9> <span class="label-text">Verwerking na gebeurtenissen</span>
@@ -194,14 +181,8 @@
 </form>
 
 <form id="tab5">
+    <h2>Ondersteuning bij huisvesting, huishouden, en financiën</h2>
     <div class="form-check">
-        <h2>Huisvesting en huishouden <button type="button" class="btn fa fa-info" ; font-size: 16px;;" data-toggle="collapse" data-target="#domein5"></button></h2>
-        <div id="domein5" class="collapse" style="font-size: 16px; margin-top: 15px; margin-bottom: 15px;" >
-            Een goed en schoon onderkomen hebben draagt bij aan het welbevinden. Aveleijn ondersteunt mensen bij huisvesting en 
-            huishouding door vaardigheden te leren zoals het maken van een weekplanning en kleding strijken. Soms is alleen motivering 
-            voldoende en wanneer nodig nemen we taken over. Ook ondersteunen we door advies te geven over hoe een woonplek in te richten bij specifieke zorgvragen.
-        </div>
-
         <label>
 
             <input type="checkbox" name="checkbox1vraag5" value=3> <span class="label-text">Ondersteuning bij huisvesting, huishouden en financiën</span>
@@ -221,14 +202,7 @@
 
 
 <form id="tab6">
-    <h2>Ondersteunen bij netwerk en relaties <button type="button" class="btn fa fa-info" ; font-size: 16px;;" data-toggle="collapse" data-target="#domein6"></button></h2>
-    <div id="domein6" class="collapse" style="font-size: 16px; margin-top: 15px; margin-bottom: 15px;" >
-        Sociale inclusie en goede interpersoonlijke relaties zijn belangrijk voor iedereen. 
-        Een goed netwerk kan ondersteunend zijn voor mensen met een hulpvraag. Aveleijn kan mensen met een verstandelijke 
-        handicap ondersteunen bij het opbouwen en onderhouden van een netwerk. We stimuleren mensen om deel te nemen aan 
-        activiteiten in hun buurt en waar dat een stapje te ver is organiseren we zelfactiviteiten om mensen te ontmoeten. 
-        Daarnaast hebben we ook trainingen rondom sociale vaardigheden en weerbaarheid.
-    </div>
+    <h2>Ondersteunen bij netwerk en relaties</h2>
     <div class="form-check">
         <label>
             <input type="checkbox" name="checkbox1vraag6" value=2> <span class="label-text">Sociale vaardigheden</span>
@@ -267,9 +241,11 @@
 @section Scripts {
     <script type="text/javascript">
 
+        var kinderen = false;
+
         $(":checkbox").on("click", function () {
             $.ajax({
-                url: "@Url.Action("AddToDomeinLocal", "Plus18")",
+                url: "@Url.Action("AddToDomeinLocal", "IndicatieVragen")",
                 data: {
                     _button: $(this).attr("name"),
                     _buttonChecked: $(this).is(":checked")
@@ -286,18 +262,19 @@
         });
 
         $("#calculateFirst").on("click", function () {
+            kinderen = @Json.Encode(Model.Volwassene);
             $.ajax({
-                url: "@Url.Action("AddToExtraLocal", "Plus18")",
+                url: "@Url.Action("AddToExtraLocal", "IndicatieVragen")",
                 data: {
                     _beperking: $('input[name=beperking]:checked').val(),
                     //_kinderenBool: $('input[name=kinderen]').is(":checked"),
-                    _kinderenPoints: $('input[name=kinderen]:checked').val(),
+                    _kinderenPoints: kinderen ? $('input[name=kinderen]:checked').val() : 0,
                     //_zorgmijdingBool: $('input[name=zorgmijding]').is(":checked"),
                     _zorgmijdingPoints: $('input[name=zorgmijding]:checked').val(),
                 },
                 method: "POST",
                 success: function (data) {
-                    var link = "@Url.Action("CalculateFirst", "Plus18")";
+                    var link = "@Url.Action("CalculateFirst", "IndicatieVragen")";
                     window.location.href = link;
                 },
                 error: function (xhr, ajaxOptions, thrownError) {

@@ -12,10 +12,14 @@ namespace MVCLeegProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class checkBoxMap
+    public partial class Formulier_tt
     {
-        public string checkBox_id { get; set; }
-        public string beschrijving { get; set; }
-        public Nullable<int> value { get; set; }
+        public int result_id { get; set; }
+        public string Clientnummer { get; set; }
+        public System.DateTime startTime { get; set; }
+        public Nullable<System.DateTime> endTime { get; set; }
+    
+        public virtual Client Client { get; set; }
+        public virtual Result Result { get; set; }
     }
 }

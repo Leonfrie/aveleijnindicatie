@@ -7,7 +7,7 @@
     <h1>Twentse Zorg Model</h1>
     <p class="lead">Kies welke optie voor u van toepassing is.</p>
     <br />
-    <button class="w3-button a-blue">start Kinderen  &raquo;</button>
-    <a href="/Plus18/Index"><button class="w3-button a-blue">start Volwassenen (18+) &raquo;</button></a>
+    <button class="w3-button a-blue" onclick="location.href='@Url.Action("Index", "IndicatieVragen", new { volwassene = false })';">start Kinderen  &raquo;</button>
+    <button class="w3-button a-blue" onclick="location.href='@Url.Action("Index", "IndicatieVragen", new { volwassene = true })';">start Volwassenen (18+) &raquo;</button>
 </div>
 
