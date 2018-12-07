@@ -6,34 +6,42 @@
 }
 
 <h2>Ondersteuningsbehoeften</h2>
-<p>Kies afhankelijk van de tabel hieronder een categorie waar uw client het best bij past. <br/>
-    Het kan zijn dat er enkel B/C of C beschikbaar zijn. <br/>
-    Dit komt door de eerste 3 vragen over de matebeperking, kinderen en zorgmijding. </p>
+<p>
+    Kies afhankelijk van de tabel hieronder een categorie waar uw client het best bij past. <br />
+    Het kan zijn dat er enkel B/C of C beschikbaar zijn. <br />
+    Dit komt door de antwoorden gegeven in de eerste drie vragen. 
+</p>
 
 @{
     bool Akannog = true;
     bool Bkannog = true;
     bool Ckannog = true;
 
+    string WaaromKanANiet = "";
+    string WaaromKanBNiet = "";
+
     switch (Model.MateBeperking)
     {
         case "geen":
-           // <p> er is geen matebeperking</p>
+            // <p> er is geen matebeperking</p>
             break;
         case "Matig":
-           // <p> matebeperking is matig </p>
+            // <p> matebeperking is matig </p>
             break;
         case "licht":
-          //  <p> matebeperking is licht</p>
+            //  <p> matebeperking is licht</p>
+            WaaromKanANiet = "Optie niet beschikbaar omdat de matebeperking licht is";
             Akannog = false;
             break;
         case "zwaar":
-          //  <p> matebeperking is zwaar</p>
+            //  <p> matebeperking is zwaar</p>
+            WaaromKanANiet = "Optie niet beschikbaar omdat de matebeperking'zwaar is";
+            WaaromKanBNiet = "Optie niet beschikbaar omdat de matebeperking zwaar is";
             Akannog = false;
             Bkannog = false;
             break;
         default:
-          //  <p> matebeperking is onbepaald</p>
+            //  <p> matebeperking is onbepaald</p>
             break;
 
     }
@@ -41,6 +49,14 @@
     if (Model.Zorgmijding)
     {
         Akannog = false;
+        if (WaaromKanANiet == "")
+        {
+            WaaromKanANiet = "De patient aan zorgmijding doet";
+        }
+        else
+        {
+            WaaromKanANiet += " en aan zorgmijding doet";
+        }
     }
 }
 
@@ -54,9 +70,17 @@
 {
     <input type="radio" name="beperking" value="A" /> <span>Type A</span><br />
 }
+else
+{
+    <input disabled type="radio" name="beperking" value="A" /> <span>Type A</span> <span style="color: #006070;">@WaaromKanANiet</span><br />
+}
 @if (Bkannog)
 {
     <input type="radio" name="beperking" value="B" /> <span>Type B</span><br />
+}
+else
+{
+    <input disabled type="radio" name="beperking" value="B" /> <span>Type B</span> <span style="color: #006070;">@WaaromKanBNiet</span><br />
 }
 @if (Ckannog)
 {
