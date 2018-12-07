@@ -17,6 +17,7 @@
     bool Bkannog = true;
     bool Ckannog = true;
 
+
     string WaaromKanANiet = "";
     string WaaromKanBNiet = "";
 
@@ -35,7 +36,7 @@
             break;
         case "zwaar":
             //  <p> matebeperking is zwaar</p>
-            WaaromKanANiet = "Optie niet beschikbaar omdat de matebeperking'zwaar is";
+            WaaromKanANiet = "Optie niet beschikbaar omdat de matebeperking zwaar is";
             WaaromKanBNiet = "Optie niet beschikbaar omdat de matebeperking zwaar is";
             Akannog = false;
             Bkannog = false;
@@ -51,7 +52,7 @@
         Akannog = false;
         if (WaaromKanANiet == "")
         {
-            WaaromKanANiet = "De patient aan zorgmijding doet";
+            WaaromKanANiet = "Optie niet beschikbaar omdat de patient aan zorgmijding doet ";
         }
         else
         {
@@ -59,6 +60,19 @@
         }
     }
 }
+
+    @if (Model.Kinderen)
+    {
+        Akannog = false;
+        if (WaaromKanANiet == "")
+        {
+            WaaromKanANiet = "Optie niet beschikbaar omdat de patient kinderen heeft ";
+        }
+        else
+        {
+            WaaromKanANiet += " en ook kinderen heeft";
+        }
+    }
 
 
 
