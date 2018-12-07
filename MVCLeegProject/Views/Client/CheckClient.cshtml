@@ -1,0 +1,78 @@
+﻿@model MVCLeegProject.Models.Client
+@{
+    ViewBag.Title = "CheckClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Diagnose van cliënt @Model.voornaam @Model.achternaam</h2>
+
+<h3>Vastgestelde indicatie</h3>
+<table class="table">
+    <tr>
+        <th>
+            Indicatie
+        </th>
+        <th>
+            Vastgesteld op
+        </th>
+        <th>
+            Tot op
+        </th>
+        <th>
+            Vastgesteld door
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            OB @Model.Formulier_tt.Select(f => f.Result.Indication).First()
+        </td>
+        <td>
+            @Model.Formulier_tt.Select(f => f.startTime).First().ToShortDateString()
+        </td>
+        <td>
+            @if (Model.Formulier_tt.Select(f => f.endTime).First() == null)
+            {
+                <p>Heden</p>
+            }
+            else
+            {
+                Model.Formulier_tt.Select(f => f.endTime).First();
+            }
+        </td>
+        <td>
+            @Model.AspNetUser.UserName
+        </td>
+    </tr>
+
+</table>
+
+<h3>Vastgestelde zorgbehoeften</h3>
+@{
+    string behoeftes = Model.Formulier_tt.Select(f => f.Result.pickedBoxes).First();
+    string[] behoeftesList = behoeftes.Split(',');
+
+    <ul class="w3-ul">
+        @foreach (string item in behoeftesList)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+<h3>Opmerkingen bij deze indicatie</h3>
+@{
+    if (Model.Formulier_tt.Select(f => f.Result.commentaar).First() == "")
+    {
+        <i>Geen</i>
+    }
+    else
+    {
+        <i>@Model.Formulier_tt.Select(f => f.Result.commentaar).First()</i>
+    }
+}
+<br /><br />
+
+<a href="@Url.Action("Index", "Client")" class="btn btn-primary">
+    &laquo; Terug
+</a>

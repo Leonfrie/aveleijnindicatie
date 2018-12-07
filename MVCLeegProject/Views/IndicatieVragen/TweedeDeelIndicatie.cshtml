@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ondersteuningsbehoeften</h2>
+<h2>Niveau's bij ondersteuningsbehoeften</h2>
 <p>Kies afhankelijk van de tabel hieronder een categorie waar uw client het best bij past. <br/>
     Het kan zijn dat er enkel B/C of C beschikbaar zijn. <br/>
     Dit komt door de eerste 3 vragen over de matebeperking, kinderen en zorgmijding. </p>
@@ -52,19 +52,21 @@
 
 @if (Akannog)
 {
-    <input type="radio" name="beperking" value="A" /> <span>Type A</span><br />
+    <input type="radio" name="beperking2" value="A" /> <span>Type A</span><br />
 }
 @if (Bkannog)
 {
-    <input type="radio" name="beperking" value="B" /> <span>Type B</span><br />
+    <input type="radio" name="beperking2" value="B" /> <span>Type B</span><br />
 }
 @if (Ckannog)
 {
-    <input type="radio" name="beperking" value="C" /> <span>Type C</span><br />
+    <input type="radio" name="beperking2" value="C" /> <span>Type C</span><br />
 }
 
+<br />
 
-
+<button class="w3-button a-blue" onclick="history.go(-1);">&laquo; Ga terug</button> 
+<button id="ShowResults" class="w3-button a-blue">Ga naar resultaten &raquo;</button>
 
 
 <table class="w3-table-all" style="margin-top: 50px;">
@@ -118,3 +120,32 @@
         <td>De inwoner of het gezinssysteem kan/kunnen veranderingen zelf in het geheel niet signaleren.</td>
     </tr>
 </table>
+
+@section Scripts {
+    
+    <script>
+
+        $("#ShowResults").on("click", function () {
+            if ($('input[name=beperking2]:checked').val() != null) {
+             $.ajax({
+                url: "@Url.Action("ShowResults", "IndicatieVragen")",
+                data: {
+                    _type: $('input[name=beperking2]:checked').val()
+                },
+                method: "POST",
+                 success: function (data) {
+                     var link = "@Url.Action("ShowResults", "IndicatieVragen")";
+                    window.location.href = link;
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 404) {
+                        return;
+                    }
+                }
+            });
+            }
+        });
+
+    </script>
+    
+    }

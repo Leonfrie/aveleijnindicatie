@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVCLeegProject.Models.Client>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Opgeslagen cliënten</h2>
+
+<!--input type="text" class="form-control" id="Search" /> <button id="SearchBtn"class="w3-button a-blue">Zoeken</button-->
+
+<form method="get" action="@Url.Action("Search", "Client")">
+    <label for="search">Search</label>
+    <input type="text" name="searchString" id="search" />
+    <button type="submit">Perform search</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            Naam
+        </th>
+        <th>
+            Geboortedatum
+        </th>
+        <th>
+            Cliëntnummer
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.voornaam @item.achternaam
+            </td>
+            <td>
+                @item.geboortedatum.ToShortDateString()
+            </td>
+            <td>
+                @item.clientnummer
+            </td>
+            <td>
+                <a href="@Url.Action("CheckClient", "Client", new { id = item.clientnummer })" class="btn btn-primary">
+                    Bekijk
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section Scripts {
+
+    <script>
+        $("#SearchBtn").on("click", function () {
+            var link = "@Url.Action("Index", "IndicatieVragen")";
+            window.location.href = link;
+        });
+    </script>
+}

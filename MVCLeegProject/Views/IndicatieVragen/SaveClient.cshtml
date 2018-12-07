@@ -1,0 +1,77 @@
+﻿
+
+@{
+    ViewBag.Title = "SaveClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cliënt opslaan</h2>
+
+    <div class="form-group row">
+        <button class="w3-button a-blue" onclick="history.go(-1);">&laquo; Ga terug</button>
+    </div>
+    <div class="form-group row">
+        <label for="clientID" class="col-2 col-form-label">Cliëntnummer</label>
+        <div class="col-8">
+            <input class="form-control" type="text" id="clientID" autocomplete="off">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="firstname" class="col-2 col-form-label">Voornaam cliënt</label>
+        <div class="col-8">
+            <input class="form-control" type="text" id="firstname" autocomplete="off">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lastname" class="col-2 col-form-label">Achternaam cliënt</label>
+        <div class="col-8">
+            <input class="form-control" type="text" id="lastname" autocomplete="off">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="birth" class="col-2 col-form-label">Geboortedatum cliënt</label>
+        <div class="col-8">
+            <input class="form-control" type="date" id="birth" autocomplete="off">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="comment" class="col-2 col-form-label">Opmerkingen over cliënt</label>
+        <div class="col-10">
+            <textarea class="form-control" id="comment" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <button id="SaveClientBtn" class="w3-button a-blue">Cliënt opslaan</button>
+    </div>
+
+@section Scripts {
+    
+    <script>
+        $("#SaveClientBtn").on("click", function () {
+            if ($('#clientID').val() != "" && $('#firstname').val() != "" && $('#lastname').val() != "" && $('#birth').val() != null) {
+             $.ajax({
+                url: "@Url.Action("SaveConfirm", "IndicatieVragen")",
+                data: {
+                    clientNummer: $('#clientID').val(),
+                    voornaam: $('#firstname').val(),
+                    achternaam: $('#lastname').val(),
+                    geboorteDatum: $('#birth').val(),
+                    commentaar: $('#comment').val()
+                },
+                method: "POST",
+                 success: function (data) {
+                    var link = "@Url.Action("Index", "Client")";
+                    window.location.href = link;
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 404) {
+                        return;
+                    }
+                }
+            });
+            }
+        });
+    </script>
+
+}
+

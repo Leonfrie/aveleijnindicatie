@@ -1,0 +1,238 @@
+﻿@model MVCLeegProject.Models._LocalSaveModel
+
+@{
+    ViewBag.Title = "ShowResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Conclusie</h2>
+
+<h1 style="font-size:10vw;"> OB @Model.EersteDeelIndicatie @Model.TweedeDeelIndicatie</h1>
+
+<div class="col-md-6">
+    <div class="row">
+        Bent u het niet eens met de ondersteuningsbehoefte? <button type="button" class="btn btn-xs fa fa-info" data-toggle="modal" data-target="#modalNiv"></button><br />
+        <button id="ChangeNiveau" class="w3-button a-blue" data-toggle="collapse" data-target="#showNivOptions">Wijzig</button><br />
+        Bent u het niet eens met het niveau bij de ondersteuningsbehoefte? <button type="button" class="btn btn-xs fa fa-info" data-toggle="modal" data-target="#modalType"></button><br />
+        <button id="ChangeType" class="w3-button a-blue" data-toggle="collapse" data-target="#showTypeOptions">Wijzig</button><br />
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="row">
+        Wilt u deze gegevens opslaan voor een cliënt?<br />
+        <button id="SaveClient" class="w3-button a-blue">Opslaan</button><br /><br /><br /><br /><br />
+    </div>
+</div>
+
+<div id="showNivOptions" class="collapse">
+    Ondersteuningsbehoefte:<br />
+    @if (Model.Volwassene)
+    {
+        <input type="radio" name="niveau" value=1 /> <span>OB 1</span> <br />
+        <input type="radio" name="niveau" value=2 /> <span>OB 2</span> <br />
+    }
+    else
+    {
+        <input type="radio" name="niveau" value=1 /> <span>OB 1</span> <br />
+        <input type="radio" name="niveau" value=2 /> <span>OB 2</span> <br />
+        <input type="radio" name="niveau" value=3 /> <span>OB 3</span> <br />
+        <input type="radio" name="niveau" value=4 /> <span>OB 4</span> <br />
+
+    }
+    <button id="SaveNivButton" class="w3-button a-blue">Opslaan</button><br />
+</div>
+
+<div id="showTypeOptions" class="collapse">
+    Niveau:<br />
+    <input type="radio" name="type" value="A" /> <span>Type A</span> <br />
+    <input type="radio" name="type" value="B" /> <span>Type B</span> <br />
+    <input type="radio" name="type" value="C" /> <span>Type C</span> <br />
+    <button id="SaveTypeButton" class="w3-button a-blue">Opslaan</button><br />
+</div>
+
+Hieronder een overzicht van alle ingevulde resultaten. Kijkt u deze alstublieft na voordat u deze resultaten gaat opslaan.<br />
+<br />
+
+
+@{
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    int d = 0;
+    int e = 0;
+    int f = 0;
+}
+
+
+<ul class="w3-ul" style="margin-top: 50px; margin-bottom: 50px;">
+    <li><h4>Verplichte velden</h4> <button class="w3-button a-blue" onclick="history.go(-4);">Wijzig</button> </li>
+    <li>Mate van beperking: @Model.MateBeperking</li>
+    @if (Model.Kinderen)
+    {
+        <li>Kinderen: Ja</li>
+    }
+    else
+    {
+        <li>Kinderen: Nee</li>
+    }
+    @if (Model.Zorgmijding)
+    {
+        <li>Zorgmijding: Ja</li>
+    }
+    else
+    {
+        <li>Zorgmijding: Nee</li>
+    }
+
+        <li><h4>Domeinen</h4> <button class="w3-button a-blue" onclick="history.go(-3);">Wijzig</button></li>
+
+    @foreach (var item in Model.DomeinBeschrijvingen1)
+    {
+        if (a == 0)
+        {
+            <li><b>Ondersteuning bij lichamelijke verzorging</b></li>
+        }
+        <li>@item</li>
+        a++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen2)
+    {
+        if (b == 0)
+        {
+            <li><b>Ondersteuning bij psychisch welbevinden</b></li>
+        }
+        <li>@item</li>
+        b++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen3)
+    {
+        if (c == 0)
+        {
+            <li><b>Ondersteuning bij zelfredzaamheid en zelfstandigheid</b></li>
+        }
+        <li>@item</li>
+        c++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen4)
+    {
+        if (d == 0)
+        {
+            <li><b>Ondersteuning bij maatschappelijke en huiselijke problematiek</b></li>
+        }
+        <li>@item</li>
+        d++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen5)
+    {
+        if (e == 0)
+        {
+            <li><b>Ondersteuning bij huisvesting, huishouden, en financiën</b></li>
+        }
+        <li>@item</li>
+        e++;
+    }
+    @foreach (var item in Model.DomeinBeschrijvingen6)
+    {
+        if (f == 0)
+        {
+            <li><b>Ondersteuning bij netwerk en relaties</b></li>
+        }
+        <li>@item</li>
+        f++;
+    }
+
+</ul>
+<br />
+
+<div id="modalNiv" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ondersteuning bij netwerk en relaties</h4>
+            </div>
+            <div class="modal-body">
+                <img src="~/Content/img/OB_Beschrijvingen.png" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalType" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ondersteuning bij netwerk en relaties</h4>
+            </div>
+            <div class="modal-body">
+                <img src="~/Content/img/Niveau_Beschrijving.png"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    
+    <script>
+        $("#SaveClient").on("click", function () {
+            var link = "@Url.Action("SaveClient", "IndicatieVragen")";
+            window.location.href = link;
+        });
+
+        $("#SaveNivButton").on("click", function () {
+            if ($('input[name=niveau]:checked').val() != null) {
+             $.ajax({
+                url: "@Url.Action("ChangeNiv", "IndicatieVragen")",
+                data: {
+                    _niv: $('input[name=niveau]:checked').val()
+                },
+                method: "POST",
+                 success: function (data) {
+                     location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 404) {
+                        return;
+                    }
+                }
+            });
+            }
+        });
+
+        $("#SaveTypeButton").on("click", function () {
+            if ($('input[name=type]:checked').val() != null) {
+             $.ajax({
+                url: "@Url.Action("ChangeType", "IndicatieVragen")",
+                data: {
+                    _type: $('input[name=type]:checked').val()
+                },
+                method: "POST",
+                 success: function (data) {
+                     location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 404) {
+                        return;
+                    }
+                }
+            });
+            }
+        });
+    </script>
+    
+    
+    }
