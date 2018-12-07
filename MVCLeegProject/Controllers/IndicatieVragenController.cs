@@ -14,6 +14,9 @@ namespace MVCLeegProject.Controllers
     public class IndicatieVragenController : Controller
     {
 
+        string clientnr = "";
+        Client client2;
+
         DB_A42A9B_Aveleijn2018Entities4 db = new DB_A42A9B_Aveleijn2018Entities4();
 
         // GET: Plus18
@@ -55,6 +58,36 @@ namespace MVCLeegProject.Controllers
                 Kinderen = LocalSaveModel.Kinderen,
                 Zorgmijding = LocalSaveModel.Zorgmijding,
                 EersteDeelIndicatie = LocalSaveModel.EersteDeelIndicatie
+            };
+
+            return View(_localSaveModel);
+        }
+
+        [HttpPost]
+        public ActionResult ShowResults(string _type)
+        {
+            LocalSaveModel.TweedeDeelIndicatie = _type;
+
+            return new EmptyResult();
+        }
+
+        public ActionResult ShowResults()
+        {
+            _LocalSaveModel _localSaveModel = new _LocalSaveModel
+            {
+                DomeinBeschrijvingen1 = LocalSaveModel.DomeinBeschrijvingen1,
+                DomeinBeschrijvingen2 = LocalSaveModel.DomeinBeschrijvingen2,
+                DomeinBeschrijvingen3 = LocalSaveModel.DomeinBeschrijvingen3,
+                DomeinBeschrijvingen4 = LocalSaveModel.DomeinBeschrijvingen4,
+                DomeinBeschrijvingen5 = LocalSaveModel.DomeinBeschrijvingen5,
+                DomeinBeschrijvingen6 = LocalSaveModel.DomeinBeschrijvingen6,
+                Points = LocalSaveModel.Points,
+                MateBeperking = LocalSaveModel.MateBeperking,
+                Kinderen = LocalSaveModel.Kinderen,
+                Zorgmijding = LocalSaveModel.Zorgmijding,
+                EersteDeelIndicatie = LocalSaveModel.EersteDeelIndicatie,
+                TweedeDeelIndicatie = LocalSaveModel.TweedeDeelIndicatie,
+                Volwassene = LocalSaveModel.Volwassene
             };
 
             return View(_localSaveModel);
@@ -200,36 +233,59 @@ namespace MVCLeegProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveConfirm(_LocalSaveModel model)
+        public ActionResult ChangeNiv(int _niv)
+        {
+            LocalSaveModel.EersteDeelIndicatie = _niv;
+
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeType(string _type)
+        {
+            LocalSaveModel.TweedeDeelIndicatie = _type;
+
+            return new EmptyResult();
+        }
+
+        public ActionResult SaveClient()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SaveConfirm(string clientNummer, string voornaam, string achternaam, DateTime geboorteDatum, string commentaar)
         {
             DB_A42A9B_Aveleijn2018Entities4 db = new DB_A42A9B_Aveleijn2018Entities4();
 
-
+            clientnr = clientNummer;
 
             if (ModelState.IsValid)
             {
                 Client client = new Client();
 
-                var thisClient = db.Clients.Where(c => c.clientnummer == model.Clientnummer);
+                var thisClient = db.Clients.Where(c => c.clientnummer == clientNummer);
 
 
                 if (!thisClient.Any())
                 {
-                    client.clientnummer = model.Clientnummer;
-                    client.voornaam = model.Voornaam;
-                    client.achternaam = model.Achternaam;
-                    client.geboortedatum = model.Geboortedatum;
+                    client.clientnummer = clientNummer;
+                    client.voornaam = voornaam;
+                    client.achternaam = achternaam;
+                    client.geboortedatum = geboorteDatum;
                     client.Behandelaar = User.Identity.GetUserId();
 
                     db.Clients.Add(client);
                 }
+
+                client2 = client;
 
 
                 Result result = new Result();
 
                 StringBuilder pickedBuilder = new StringBuilder();
 
-                foreach (var item in model.DomeinBeschrijvingen1)
+                foreach (var item in LocalSaveModel.DomeinBeschrijvingen1)
                 {
 
                     if (pickedBuilder.Length == 0)
@@ -244,7 +300,7 @@ namespace MVCLeegProject.Controllers
 
                 }
 
-                foreach (var item in model.DomeinBeschrijvingen2)
+                foreach (var item in LocalSaveModel.DomeinBeschrijvingen2)
                 {
 
                     if (pickedBuilder.Length == 0)
@@ -259,7 +315,7 @@ namespace MVCLeegProject.Controllers
 
                 }
 
-                foreach (var item in model.DomeinBeschrijvingen3)
+                foreach (var item in LocalSaveModel.DomeinBeschrijvingen3)
                 {
 
                     if (pickedBuilder.Length == 0)
@@ -274,7 +330,7 @@ namespace MVCLeegProject.Controllers
 
                 }
 
-                foreach (var item in model.DomeinBeschrijvingen4)
+                foreach (var item in LocalSaveModel.DomeinBeschrijvingen4)
                 {
 
                     if (pickedBuilder.Length == 0)
@@ -289,7 +345,7 @@ namespace MVCLeegProject.Controllers
 
                 }
 
-                foreach (var item in model.DomeinBeschrijvingen5)
+                foreach (var item in LocalSaveModel.DomeinBeschrijvingen5)
                 {
 
                     if (pickedBuilder.Length == 0)
@@ -304,7 +360,7 @@ namespace MVCLeegProject.Controllers
 
                 }
 
-                foreach (var item in model.DomeinBeschrijvingen6)
+                foreach (var item in LocalSaveModel.DomeinBeschrijvingen6)
                 {
 
                     if (pickedBuilder.Length == 0)
@@ -321,8 +377,10 @@ namespace MVCLeegProject.Controllers
 
 
                 result.pickedBoxes = pickedBuilder.ToString();
-                result.commentaar = model.Commentaar;
+                result.commentaar = commentaar;
+                result.Indication = ""+LocalSaveModel.EersteDeelIndicatie+" "+LocalSaveModel.TweedeDeelIndicatie+"";
 
+                db.Results.Add(result);
 
                 Formulier_tt formulier_tt = new Formulier_tt();
 
@@ -340,15 +398,12 @@ namespace MVCLeegProject.Controllers
                     formulier_tt.startTime = DateTime.UtcNow;
                 }
 
-
                 db.Formulier_tt.Add(formulier_tt);
 
                 db.SaveChanges();
-
-
-
             }
-            return View();
+
+            return new EmptyResult();
         }
 
         public ActionResult Plus18Check()
